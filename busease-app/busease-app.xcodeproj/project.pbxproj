@@ -11,6 +11,11 @@
 		B652FA3B2D232A6300306D3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652FA3A2D232A6300306D3C /* ContentView.swift */; };
 		B652FA3D2D232A6A00306D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B652FA3C2D232A6A00306D3C /* Assets.xcassets */; };
 		B652FA412D232A6A00306D3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B652FA402D232A6A00306D3C /* Preview Assets.xcassets */; };
+		B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */; };
+		B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */; };
+		B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */; };
+		B6C65A112D2471CA00EB9EEA /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A102D2471CA00EB9EEA /* AuthenticationService.swift */; };
+		B6C65A132D2472BA00EB9EEA /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A122D2472BA00EB9EEA /* AuthenticationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		B652FA3C2D232A6A00306D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B652FA3E2D232A6A00306D3C /* busease_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = busease_app.entitlements; sourceTree = "<group>"; };
 		B652FA402D232A6A00306D3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
+		B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
+		B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
+		B6C65A102D2471CA00EB9EEA /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		B6C65A122D2472BA00EB9EEA /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +62,10 @@
 		B652FA372D232A6300306D3C /* busease-app */ = {
 			isa = PBXGroup;
 			children = (
+				B6C659FA2D246C4F00EB9EEA /* Features */,
+				B6C659F82D246BF800EB9EEA /* Resources */,
+				B6C659F62D246BD900EB9EEA /* Utilities */,
+				B6C659F52D246BD100EB9EEA /* Service */,
 				B652FA382D232A6300306D3C /* busease_appApp.swift */,
 				B652FA3A2D232A6300306D3C /* ContentView.swift */,
 				B652FA3C2D232A6A00306D3C /* Assets.xcassets */,
@@ -67,6 +81,191 @@
 				B652FA402D232A6A00306D3C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B6C659F22D246BA700EB9EEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B6C659F32D246BBA00EB9EEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B6C659F42D246BC400EB9EEA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B6C659F52D246BD100EB9EEA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B6C659FF2D246D1B00EB9EEA /* Network */,
+				B6C659FE2D246D0A00EB9EEA /* Database */,
+				B6C659FD2D246D0200EB9EEA /* API */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B6C659F62D246BD900EB9EEA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A002D246D2B00EB9EEA /* Helpers */,
+				B6C659F72D246BE700EB9EEA /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B6C659F72D246BE700EB9EEA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B6C659F82D246BF800EB9EEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A052D246D7E00EB9EEA /* Localizable */,
+				B6C65A042D246D7400EB9EEA /* Images */,
+				B6C65A032D246D6D00EB9EEA /* Colors */,
+				B6C659F92D246C0E00EB9EEA /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B6C659F92D246C0E00EB9EEA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B6C659FA2D246C4F00EB9EEA /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A082D24710100EB9EEA /* Authentication */,
+				B6C659FC2D246C6300EB9EEA /* Company */,
+				B6C659FB2D246C5B00EB9EEA /* User */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B6C659FB2D246C5B00EB9EEA /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B6C659F42D246BC400EB9EEA /* ViewModels */,
+				B6C659F32D246BBA00EB9EEA /* Views */,
+				B6C659F22D246BA700EB9EEA /* Models */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		B6C659FC2D246C6300EB9EEA /* Company */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Company;
+			sourceTree = "<group>";
+		};
+		B6C659FD2D246D0200EB9EEA /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B6C659FE2D246D0A00EB9EEA /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		B6C659FF2D246D1B00EB9EEA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B6C65A002D246D2B00EB9EEA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B6C65A032D246D6D00EB9EEA /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		B6C65A042D246D7400EB9EEA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		B6C65A052D246D7E00EB9EEA /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		B6C65A082D24710100EB9EEA /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A0F2D2471B000EB9EEA /* Service */,
+				B6C65A0B2D24712000EB9EEA /* Model */,
+				B6C65A0A2D24711500EB9EEA /* ViewModel */,
+				B6C65A092D24710E00EB9EEA /* Views */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		B6C65A092D24710E00EB9EEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */,
+				B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B6C65A0A2D24711500EB9EEA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A122D2472BA00EB9EEA /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B6C65A0B2D24712000EB9EEA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B6C65A0F2D2471B000EB9EEA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A102D2471CA00EB9EEA /* AuthenticationService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +338,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */,
+				B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */,
+				B6C65A132D2472BA00EB9EEA /* AuthenticationViewModel.swift in Sources */,
 				B652FA3B2D232A6300306D3C /* ContentView.swift in Sources */,
+				B6C65A112D2471CA00EB9EEA /* AuthenticationService.swift in Sources */,
+				B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */,
 				B652FA392D232A6300306D3C /* busease_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
