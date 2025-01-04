@@ -9,13 +9,22 @@ struct LoginUserView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                TextField("Documento", text: $document)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-
-                SecureField("Senha", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+                TextFieldComponent(error: "",
+                                   errorValidation: true, title: "E-mail",
+                                   placeholder: "Digite seu e-mail",
+                                   textContentType: .emailAddress, titleFont: .callout,
+                                   placeHolderFont: .caption,
+                                   validateFieldCallBack: { text in return navigateToHome },
+                                   text: $document)
+                
+                
+                    TextFieldComponent(error: "",
+                                       errorValidation: true, title: "Senha",
+                                       placeholder: "Digite sua senha",
+                                       textContentType: .password, titleFont: .callout,
+                                       placeHolderFont: .caption,
+                                       validateFieldCallBack: { text in return navigateToHome },
+                                       text: $password)
 
                 Button(action: {
                     authViewModel.login(document: document, password: password)
@@ -23,14 +32,14 @@ struct LoginUserView: View {
                     Text("Login")
                         .foregroundColor(.white)
                         .padding()
-                        .background(Color.blue)
+                        .background(ColorBE.colorButton)
                         .cornerRadius(8)
                 }
                 .padding()
                 Spacer()
                 NavigationLink(destination: RegisterUserView()) {
                     Text("Cadastrar Usuário")
-                        .foregroundColor(.blue)
+                        .foregroundColor(ColorBE.colorButtonAssistant)
                         .padding()
                 }
                 if let errorMessage = authViewModel.errorMessage {

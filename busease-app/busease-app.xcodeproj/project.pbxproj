@@ -11,11 +11,25 @@
 		B652FA3B2D232A6300306D3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652FA3A2D232A6300306D3C /* ContentView.swift */; };
 		B652FA3D2D232A6A00306D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B652FA3C2D232A6A00306D3C /* Assets.xcassets */; };
 		B652FA412D232A6A00306D3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B652FA402D232A6A00306D3C /* Preview Assets.xcassets */; };
+		B66D06C72D29A33400AB1965 /* EncodeSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66D06C62D29A33400AB1965 /* EncodeSans-SemiBold.ttf */; };
+		B66D06C92D29A34100AB1965 /* EncodeSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66D06C82D29A34100AB1965 /* EncodeSans-Thin.ttf */; };
+		B66D06CE2D29A36500AB1965 /* EncodeSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66D06CA2D29A36500AB1965 /* EncodeSans-Regular.ttf */; };
+		B66D06CF2D29A36500AB1965 /* EncodeSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66D06CB2D29A36500AB1965 /* EncodeSans-Medium.ttf */; };
+		B66D06D02D29A36500AB1965 /* EncodeSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66D06CC2D29A36500AB1965 /* EncodeSans-Light.ttf */; };
+		B66D06D12D29A36500AB1965 /* EncodeSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66D06CD2D29A36500AB1965 /* EncodeSans-Bold.ttf */; };
+		B66D06D32D29B94200AB1965 /* ColorBE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D06D22D29B94200AB1965 /* ColorBE.swift */; };
 		B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */; };
 		B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */; };
 		B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */; };
 		B6C65A112D2471CA00EB9EEA /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A102D2471CA00EB9EEA /* AuthenticationService.swift */; };
 		B6C65A132D2472BA00EB9EEA /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A122D2472BA00EB9EEA /* AuthenticationViewModel.swift */; };
+		B6C65A152D26C67B00EB9EEA /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A142D26C67B00EB9EEA /* FontType.swift */; };
+		B6C65A172D26C6B100EB9EEA /* FontFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A162D26C6B100EB9EEA /* FontFamily.swift */; };
+		B6C65A192D26C71500EB9EEA /* Extension_Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A182D26C71500EB9EEA /* Extension_Font.swift */; };
+		B6C65A1C2D26C7CC00EB9EEA /* TextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A1B2D26C7CC00EB9EEA /* TextFieldComponent.swift */; };
+		B6C65A222D26C92400EB9EEA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A212D26C92400EB9EEA /* Error.swift */; };
+		B6C65A252D26C98500EB9EEA /* TabModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A242D26C98500EB9EEA /* TabModifier.swift */; };
+		B6C65A272D26D81400EB9EEA /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A262D26D81300EB9EEA /* Extension+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,11 +39,25 @@
 		B652FA3C2D232A6A00306D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B652FA3E2D232A6A00306D3C /* busease_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = busease_app.entitlements; sourceTree = "<group>"; };
 		B652FA402D232A6A00306D3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B66D06C62D29A33400AB1965 /* EncodeSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-SemiBold.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		B66D06C82D29A34100AB1965 /* EncodeSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Thin.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-Thin.ttf"; sourceTree = "<group>"; };
+		B66D06CA2D29A36500AB1965 /* EncodeSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Regular.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-Regular.ttf"; sourceTree = "<group>"; };
+		B66D06CB2D29A36500AB1965 /* EncodeSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Medium.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-Medium.ttf"; sourceTree = "<group>"; };
+		B66D06CC2D29A36500AB1965 /* EncodeSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Light.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-Light.ttf"; sourceTree = "<group>"; };
+		B66D06CD2D29A36500AB1965 /* EncodeSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Bold.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-Bold.ttf"; sourceTree = "<group>"; };
+		B66D06D22D29B94200AB1965 /* ColorBE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBE.swift; sourceTree = "<group>"; };
 		B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
 		B6C65A102D2471CA00EB9EEA /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		B6C65A122D2472BA00EB9EEA /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		B6C65A142D26C67B00EB9EEA /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
+		B6C65A162D26C6B100EB9EEA /* FontFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamily.swift; sourceTree = "<group>"; };
+		B6C65A182D26C71500EB9EEA /* Extension_Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Font.swift; sourceTree = "<group>"; };
+		B6C65A1B2D26C7CC00EB9EEA /* TextFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldComponent.swift; sourceTree = "<group>"; };
+		B6C65A212D26C92400EB9EEA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		B6C65A242D26C98500EB9EEA /* TabModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModifier.swift; sourceTree = "<group>"; };
+		B6C65A262D26D81300EB9EEA /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +154,8 @@
 		B6C659F72D246BE700EB9EEA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B6C65A182D26C71500EB9EEA /* Extension_Font.swift */,
+				B6C65A262D26D81300EB9EEA /* Extension+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -133,6 +163,8 @@
 		B6C659F82D246BF800EB9EEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B6C65A232D26C97000EB9EEA /* CustomView */,
+				B6C65A1A2D26C7B400EB9EEA /* Components */,
 				B6C65A052D246D7E00EB9EEA /* Localizable */,
 				B6C65A042D246D7400EB9EEA /* Images */,
 				B6C65A032D246D6D00EB9EEA /* Colors */,
@@ -144,6 +176,14 @@
 		B6C659F92D246C0E00EB9EEA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B66D06CD2D29A36500AB1965 /* EncodeSans-Bold.ttf */,
+				B66D06CC2D29A36500AB1965 /* EncodeSans-Light.ttf */,
+				B66D06CB2D29A36500AB1965 /* EncodeSans-Medium.ttf */,
+				B66D06CA2D29A36500AB1965 /* EncodeSans-Regular.ttf */,
+				B66D06C62D29A33400AB1965 /* EncodeSans-SemiBold.ttf */,
+				B66D06C82D29A34100AB1965 /* EncodeSans-Thin.ttf */,
+				B6C65A142D26C67B00EB9EEA /* FontType.swift */,
+				B6C65A162D26C6B100EB9EEA /* FontFamily.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -200,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */,
+				B6C65A212D26C92400EB9EEA /* Error.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -207,6 +248,7 @@
 		B6C65A032D246D6D00EB9EEA /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				B66D06D22D29B94200AB1965 /* ColorBE.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -268,6 +310,22 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		B6C65A1A2D26C7B400EB9EEA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A1B2D26C7CC00EB9EEA /* TextFieldComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B6C65A232D26C97000EB9EEA /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				B6C65A242D26C98500EB9EEA /* TabModifier.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -326,8 +384,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B66D06D12D29A36500AB1965 /* EncodeSans-Bold.ttf in Resources */,
+				B66D06C72D29A33400AB1965 /* EncodeSans-SemiBold.ttf in Resources */,
 				B652FA412D232A6A00306D3C /* Preview Assets.xcassets in Resources */,
+				B66D06CF2D29A36500AB1965 /* EncodeSans-Medium.ttf in Resources */,
+				B66D06CE2D29A36500AB1965 /* EncodeSans-Regular.ttf in Resources */,
+				B66D06C92D29A34100AB1965 /* EncodeSans-Thin.ttf in Resources */,
 				B652FA3D2D232A6A00306D3C /* Assets.xcassets in Resources */,
+				B66D06D02D29A36500AB1965 /* EncodeSans-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,12 +402,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C65A1C2D26C7CC00EB9EEA /* TextFieldComponent.swift in Sources */,
 				B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */,
 				B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */,
+				B6C65A192D26C71500EB9EEA /* Extension_Font.swift in Sources */,
+				B6C65A152D26C67B00EB9EEA /* FontType.swift in Sources */,
+				B66D06D32D29B94200AB1965 /* ColorBE.swift in Sources */,
 				B6C65A132D2472BA00EB9EEA /* AuthenticationViewModel.swift in Sources */,
 				B652FA3B2D232A6300306D3C /* ContentView.swift in Sources */,
+				B6C65A272D26D81400EB9EEA /* Extension+UIColor.swift in Sources */,
 				B6C65A112D2471CA00EB9EEA /* AuthenticationService.swift in Sources */,
+				B6C65A172D26C6B100EB9EEA /* FontFamily.swift in Sources */,
 				B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */,
+				B6C65A222D26C92400EB9EEA /* Error.swift in Sources */,
+				B6C65A252D26C98500EB9EEA /* TabModifier.swift in Sources */,
 				B652FA392D232A6300306D3C /* busease_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
