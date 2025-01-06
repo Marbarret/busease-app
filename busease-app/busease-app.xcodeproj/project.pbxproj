@@ -18,6 +18,7 @@
 		B66D06D02D29A36500AB1965 /* EncodeSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66D06CC2D29A36500AB1965 /* EncodeSans-Light.ttf */; };
 		B66D06D12D29A36500AB1965 /* EncodeSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66D06CD2D29A36500AB1965 /* EncodeSans-Bold.ttf */; };
 		B66D06D32D29B94200AB1965 /* ColorBE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D06D22D29B94200AB1965 /* ColorBE.swift */; };
+		B66D06D52D29F65D00AB1965 /* VerificationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D06D42D29F65D00AB1965 /* VerificationCode.swift */; };
 		B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */; };
 		B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */; };
 		B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */; };
@@ -46,6 +47,7 @@
 		B66D06CC2D29A36500AB1965 /* EncodeSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Light.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-Light.ttf"; sourceTree = "<group>"; };
 		B66D06CD2D29A36500AB1965 /* EncodeSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Bold.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-Bold.ttf"; sourceTree = "<group>"; };
 		B66D06D22D29B94200AB1965 /* ColorBE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBE.swift; sourceTree = "<group>"; };
+		B66D06D42D29F65D00AB1965 /* VerificationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCode.swift; sourceTree = "<group>"; };
 		B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			children = (
 				B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */,
 				B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */,
+				B66D06D42D29F65D00AB1965 /* VerificationCode.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				B6C65A222D26C92400EB9EEA /* Error.swift in Sources */,
 				B6C65A252D26C98500EB9EEA /* TabModifier.swift in Sources */,
 				B652FA392D232A6300306D3C /* busease_appApp.swift in Sources */,
+				B66D06D52D29F65D00AB1965 /* VerificationCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

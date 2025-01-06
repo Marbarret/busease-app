@@ -3,24 +3,24 @@ import Combine
 
 protocol TextFieldComponentProtocol {
     var title: String { get }
-    var error: String { get }
+    //    var error: String { get }
     var placeholder: String { get }
-    var errorValidation: Bool { get }
+    //    var errorValidation: Bool { get }
     var textContentType: UITextContentType { get }
     func setKeyboardType() -> UIKeyboardType
 }
 
 struct TextFieldComponent: TextFieldComponentProtocol, View {
-    var error: String
-    var errorValidation: Bool
+    //    var error: String
+    //    var errorValidation: Bool
     var title: String
     var placeholder: String
     var textContentType: UITextContentType
     var titleFont: Font = .encodeMedium(size: .small)
     var placeHolderFont: Font = .encodeMedium(size: .small)
-    var validateFieldCallBack: (String) -> Bool
+    //    var validateFieldCallBack: (String) -> Bool
     
-    @State var hasToShowErrorMessage: Bool = false
+    //    @State var hasToShowErrorMessage: Bool = false
     @State private var isVisiblePassword: Bool = false
     @State private var isEditing: Bool = false
     @Binding var text: String
@@ -28,10 +28,10 @@ struct TextFieldComponent: TextFieldComponentProtocol, View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-//            Text(title)
-//                .foregroundColor(Color.theme.colorTextCaption)
-//                .font(titleFont)
-//                .padding(.bottom, -3)
+            //            Text(title)
+            //                .foregroundColor(Color.theme.colorTextCaption)
+            //                .font(titleFont)
+            //                .padding(.bottom, -3)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
@@ -77,11 +77,11 @@ struct TextFieldComponent: TextFieldComponentProtocol, View {
                         TextField(placeholder, text: $text)
                             .focused($isFocused)
                             .onChange(of: isFocused, perform: { changed in
-                                    if !changed {
-                                        hasToShowErrorMessage = !validateFieldCallBack(text)
-                                    }
-                                    isFocused = changed
-                                })
+                                if !changed {
+                                    //                                        hasToShowErrorMessage = !validateFieldCallBack(text)
+                                }
+                                isFocused = changed
+                            })
                             .font(placeHolderFont)
                             .foregroundColor(ColorBE.colorTextfield)
                             .frame(height: 52)
@@ -92,16 +92,40 @@ struct TextFieldComponent: TextFieldComponentProtocol, View {
                     }
                 }
                 .padding(.horizontal, 15)
-
+                
             }
-            if hasToShowErrorMessage {
-                Text(error)
-                    .foregroundColor(.red)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.caption)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+            //            if hasToShowErrorMessage {
+            //                Text(error)
+            //                    .foregroundColor(.red)
+            //                    .fixedSize(horizontal: false, vertical: true)
+            //                    .font(.caption)
+            //                    .frame(maxWidth: .infinity, alignment: .leading)
+            //            }
         }
+    }
+}
+
+struct TextFieldComponent_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        StatefulPreviewWrapper("") { text in
+            
+            TextFieldComponent(title: "Email", placeholder: "Digitar email", textContentType: .emailAddress, text: text)
+        }
+    }
+}
+
+struct StatefulPreviewWrapper<Value, Content: View>: View {
+    @State private var value: Value
+    private let content: (Binding<Value>) -> Content
+    
+    init(_ initialValue: Value, @ViewBuilder content: @escaping (Binding<Value>) -> Content) {
+        _value = State(initialValue: initialValue)
+        self.content = content
+    }
+    
+    var body: some View {
+        content($value)
     }
 }
 

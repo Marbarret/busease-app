@@ -9,21 +9,19 @@ struct LoginUserView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                TextFieldComponent(error: "",
-                                   errorValidation: true, title: "E-mail",
+                TextFieldComponent(title: "E-mail",
                                    placeholder: "Digite seu e-mail",
                                    textContentType: .emailAddress, titleFont: .callout,
                                    placeHolderFont: .caption,
-                                   validateFieldCallBack: { text in return navigateToHome },
+//                                   validateFieldCallBack: { text in return navigateToHome },
                                    text: $document)
                 
                 
-                    TextFieldComponent(error: "",
-                                       errorValidation: true, title: "Senha",
+                    TextFieldComponent(title: "Senha",
                                        placeholder: "Digite sua senha",
                                        textContentType: .password, titleFont: .callout,
                                        placeHolderFont: .caption,
-                                       validateFieldCallBack: { text in return navigateToHome },
+//                                       validateFieldCallBack: { text in return navigateToHome },
                                        text: $password)
 
                 Button(action: {
