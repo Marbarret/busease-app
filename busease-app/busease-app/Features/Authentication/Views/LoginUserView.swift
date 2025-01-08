@@ -5,25 +5,38 @@ struct LoginUserView: View {
     @State private var document = ""
     @State private var password = ""
     @State private var navigateToHome = false
-
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
+                VStack(alignment: .leading) {
+                    Text("Welcome")
+                        .font(.largeTitle)
+                        .foregroundColor(ColorBE.colorTextTitle)
+                    
+                    Text("Back")
+                        .font(.largeTitle)
+                        .foregroundColor(ColorBE.colorTextTitle)
+                }
+//                .padding(.horizontal, 20)
+                .padding(.vertical, 50)
+                
+                
                 TextFieldComponent(title: "E-mail",
                                    placeholder: "Digite seu e-mail",
                                    textContentType: .emailAddress, titleFont: .callout,
                                    placeHolderFont: .caption,
-//                                   validateFieldCallBack: { text in return navigateToHome },
+                                   //                                   validateFieldCallBack: { text in return navigateToHome },
                                    text: $document)
                 
                 
-                    TextFieldComponent(title: "Senha",
-                                       placeholder: "Digite sua senha",
-                                       textContentType: .password, titleFont: .callout,
-                                       placeHolderFont: .caption,
-//                                       validateFieldCallBack: { text in return navigateToHome },
-                                       text: $password)
-
+                TextFieldComponent(title: "Senha",
+                                   placeholder: "Digite sua senha",
+                                   textContentType: .password, titleFont: .callout,
+                                   placeHolderFont: .caption,
+                                   //                                       validateFieldCallBack: { text in return navigateToHome },
+                                   text: $password)
+                
                 Button(action: {
                     authViewModel.login(document: document, password: password)
                 }) {
@@ -53,8 +66,10 @@ struct LoginUserView: View {
                 }
                 .hidden()
             }
-            .navigationTitle("Login")
             .padding()
+            .background {
+                ColorBE.colorBg.ignoresSafeArea()
+            }
         }
     }
 }

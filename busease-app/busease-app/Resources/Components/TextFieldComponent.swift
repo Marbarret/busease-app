@@ -105,8 +105,7 @@ struct TextFieldComponent: TextFieldComponentProtocol, View {
     }
 }
 
-struct TextFieldComponent_Preview: PreviewProvider {
-    
+struct TextFieldComponent_Preview: PreviewProvider {    
     static var previews: some View {
         StatefulPreviewWrapper("") { text in
             
