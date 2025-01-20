@@ -1,5 +1,4 @@
 import SwiftUI
-import Combine
 
 struct LoginUserView: View {
     @StateObject private var viewModel = AuthenticationViewModel()
@@ -84,48 +83,20 @@ extension LoginUserView {
 
 extension LoginUserView {
     private var buttonContinue: some View {
-        Button(action: {
+        BEButton(title: "Continue", type: .primary) {
             viewModel.login()
             if let errorMessage = viewModel.errorMessage {
                 viewModel.errorMessage = errorMessage
                 showingErrorAlert = true
-            }
-        }) {
-            if viewModel.isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-            } else {
-                Text("Continue")
-                    .font(Font.customFont(family: .encode, type: .regular, size: .medium))
-                    .foregroundColor(ColorBE.colorTextBtnSecondary)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(ColorBE.colorButton)
-                    .cornerRadius(8)
             }
         }
         .disabled(viewModel.isLoading)
     }
     
     private var buttonLoginGoogle: some View {
-        Button {
-            
-        } label: {
-            HStack {
-                Image(systemName: "")
-                Text("Login with Google")
-                    .font(Font.customFont(family: .encode, type: .regular, size: .medium))
-                    .foregroundColor(ColorBE.colorButton)
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(ColorBE.colorBGComponent)
-            .overlay {
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(ColorBE.colorButton, lineWidth: 1)
-            }
-            .cornerRadius(8)
-        }
+        BEButton(title: "Login with Google", type: .primary, action:  {
+            print("Login com google")
+        }, icon: "")
     }
     
     private var buttonTouchAuthentication: some View {
@@ -168,15 +139,8 @@ extension LoginUserView {
     }
     
     private var buttonForgotPassword: some View {
-        HStack {
-            Spacer()
-            Button {
-                
-            } label: {
-                Text("Forgot Password?")
-                    .foregroundColor(ColorBE.colorButtonAssistant)
-                    .font(Font.customFont(family: .encode, type: .regular, size: .small))
-            }
+        BEButton(title: "Forgot Password?", type: .text) {
+            print("Text button tapped")
         }
     }
 }

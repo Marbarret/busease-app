@@ -91,48 +91,20 @@ extension RegisterUserView {
 
 extension RegisterUserView {
     private var buttonContinue: some View {
-        Button(action: {
+        BEButton(title: "Continue", type: .primary) {
             viewModel.login()
             if let errorMessage = viewModel.errorMessage {
                 viewModel.errorMessage = errorMessage
                 showingErrorAlert = true
-            }
-        }) {
-            if viewModel.isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-            } else {
-                Text("Continue")
-                    .font(Font.customFont(family: .encode, type: .regular, size: .medium))
-                    .foregroundColor(ColorBE.colorTextBtnSecondary)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(ColorBE.colorButton)
-                    .cornerRadius(8)
             }
         }
         .disabled(viewModel.isLoading)
     }
     
     private var buttonLoginGoogle: some View {
-        Button {
-            
-        } label: {
-            HStack {
-                Image(systemName: "")
-                Text("Register with Google")
-                    .font(Font.customFont(family: .encode, type: .regular, size: .medium))
-                    .foregroundColor(ColorBE.colorButton)
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(ColorBE.colorBGComponent)
-            .overlay {
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(ColorBE.colorButton, lineWidth: 1)
-            }
-            .cornerRadius(8)
-        }
+        BEButton(title: "Register with Google", type: .primary, action:  {
+            print("Login com google")
+        }, icon: "")
     }
     
     private var buttonSignIn: some View {
