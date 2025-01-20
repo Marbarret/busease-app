@@ -1,87 +1,51 @@
+import Combine
 import SwiftUI
 
 class AuthenticationViewModel: ObservableObject {
     @AppStorage ("authToken") private var authToken: String = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
+    @Published var emailValidationError: String? = nil
+    @Published var passwordValidationError: String? = nil
     @Published var isLoggedIn: Bool = false
-    @Published var isRegistered = false
-    @Published var errorMessage: String?
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: String? = nil
+    private var cancellables = Set<AnyCancellable>()
     
-    func login(document: String, password: String) {
-        guard let url = URL(string: "http://localhost:3000/busease-api/v1/auth/login") else { return }
-        
-        let body: [String: String] = ["document": document, "password": password]
-        let jsonData = try? JSONSerialization.data(withJSONObject: body)
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonData
-        
-        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            guard let data = data, error == nil else {
-                print("Erro na requisição:", error?.localizedDescription ?? "Erro desconhecido")
-                return
-            }
-            
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let token = json["token"] as? String {
-                    DispatchQueue.main.async {
-                        self?.authToken = token
-                        self?.isLoggedIn = true
-                    }
-                } else {
-                    self?.errorMessage = "Erro ao fazer login, usuário não encontrado"
-                }
-            } catch {
-                self?.errorMessage = "Erro ao fazer login \(error.localizedDescription)"
-            }
-        }.resume()
+    init() {
+        checkLoginStatus()
+        setupValidation()
     }
     
-    func registerUser(role: String, fullName: String, documentType: String, documentNumber: String, password: String) {
-        guard let url = URL(string: "http://localhost:3000/busease-api/v1/users") else {
-            self.errorMessage = "URL inválida"
+    private func setupValidation() {
+        Validations.shared
+            .validatePublisher($email.eraseToAnyPublisher(), type: .email(.default))
+            .assign(to: &$emailValidationError)
+        
+        Validations.shared
+            .validatePublisher($password.eraseToAnyPublisher(), type: .password(.default))
+            .assign(to: &$passwordValidationError)
+    }
+    
+    func login() {
+        guard emailValidationError == nil, passwordValidationError == nil else {
+            errorMessage = "Por favor, corrija os erros antes de continuar."
             return
         }
         
-        let payload: [String: Any] = [
-            "role": role,
-            "responsible": [
-                "fullName": fullName,
-                "document": [
-                    "document_type": documentType,
-                    "number": documentNumber
-                ]
-            ],
-            "password": password
-        ]
-        print(payload)
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: payload)
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = jsonData
-            
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                DispatchQueue.main.async {
-                    if let error = error {
-                        self.errorMessage = "Erro: \(error.localizedDescription)"
-                        return
-                    }
-                    
-                    guard let response = response as? HTTPURLResponse, response.statusCode == 201 else {
-                        self.errorMessage = "Erro no servidor ou payload inválido"
-                        return
-                    }
-                    
-                    self.isRegistered = true
+        AuthenticationService.shared.authenticate(email: email, password: password)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.errorMessage = "Erro ao fazer login: \(error.localizedDescription)"
+                case .finished:
+                    break
                 }
-            }.resume()
-        } catch {
-            self.errorMessage = "Erro ao criar usuário: \(error.localizedDescription)"
-        }
+            }, receiveValue: { [weak self] token in
+                self?.isLoggedIn = true
+            })
+            .store(in: &cancellables)
     }
     
     func logout() {
@@ -89,8 +53,7 @@ class AuthenticationViewModel: ObservableObject {
         isLoggedIn = false
     }
     
-    func checkLoginStatus() {
+    private func checkLoginStatus() {
         isLoggedIn = !authToken.isEmpty
     }
 }
-

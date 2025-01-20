@@ -29,13 +29,13 @@ struct RegisterUserView: View {
                 
                 Button(action: {
                     if validateFields() {
-                        authViewModel.registerUser(
-                            role: "user",
-                            fullName: fullName,
-                            documentType: documentType,
-                            documentNumber: documentNumber,
-                            password: password
-                        )
+//                        authViewModel.registerUser(
+//                            role: "user",
+//                            fullName: fullName,
+//                            documentType: documentType,
+//                            documentNumber: documentNumber,
+//                            password: password
+//                        )
                     } else {
                         showError = true
                     }
@@ -47,13 +47,13 @@ struct RegisterUserView: View {
                         .cornerRadius(8)
                 }
                 .padding()
-                
-                NavigationLink(
-                    destination: LoginUserView(),
-                    isActive: $authViewModel.isRegistered
-                ) {
-                    EmptyView()
-                }
+//                
+//                NavigationLink(
+//                    destination: LoginUserView(),
+//                    isActive: $authViewModel.
+//                ) {
+//                    EmptyView()
+//                }
                 
                 if showError {
                     Text("Por favor, preencha todos os campos corretamente.")

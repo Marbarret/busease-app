@@ -1,10 +1,3 @@
-//
-//  VerificationCode.swift
-//  busease-app
-//
-//  Created by Marcylene Barreto on 04/01/25.
-//
-
 import SwiftUI
 
 struct VerificationCode: View {

@@ -3,128 +3,56 @@ import Combine
 
 protocol TextFieldComponentProtocol {
     var title: String { get }
-    //    var error: String { get }
     var placeholder: String { get }
-    //    var errorValidation: Bool { get }
     var textContentType: UITextContentType { get }
     func setKeyboardType() -> UIKeyboardType
 }
 
 struct TextFieldComponent: TextFieldComponentProtocol, View {
-    //    var error: String
-    //    var errorValidation: Bool
     var title: String
     var placeholder: String
     var textContentType: UITextContentType
-    var titleFont: Font = .encodeMedium(size: .small)
-    var placeHolderFont: Font = .encodeMedium(size: .small)
-    //    var validateFieldCallBack: (String) -> Bool
+    var titleFont: Font = .headline
+    var placeHolderFont: Font = .body
     
-    //    @State var hasToShowErrorMessage: Bool = false
-    @State private var isVisiblePassword: Bool = false
-    @State private var isEditing: Bool = false
     @Binding var text: String
+    @State private var isVisiblePassword: Bool = false
     @FocusState private var isFocused: Bool
     
+    private let textSubject = PassthroughSubject<String, Never>()
+    @State private var cancellables = Set<AnyCancellable>()
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            //            Text(title)
-            //                .foregroundColor(Color.theme.colorTextCaption)
-            //                .font(titleFont)
-            //                .padding(.bottom, -3)
+        VStack(alignment: .leading, spacing: 5) {
+            Text(title)
+                .font(titleFont)
+                .foregroundColor(ColorBE.colorTextfield)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(ColorBE.colorTextfield, lineWidth: 1)
-                    .frame(maxHeight: 52)
+                    .frame(height: 52)
+                
                 HStack {
                     if textContentType == .password {
                         if !isVisiblePassword {
-                            SecureField(placeholder, text: $text)
-                                .focused($isFocused)
-                                .font(placeHolderFont)
-                                .foregroundColor(ColorBE.colorTextfield)
-                                .frame(height: 52)
-                                .disableAutocorrection(true)
-                                .textContentType(.password)
-                                .keyboardType(setKeyboardType())
-                                .autocapitalization(.none)
-                        }
-                        else {
-                            TextField(placeholder, text: $text)
-                                .focused($isFocused)
-                                .font(placeHolderFont)
-                                .foregroundColor(ColorBE.colorTextfield)
-                                .frame(height: 52)
-                                .disableAutocorrection(true)
-                                .textContentType(.password)
-                                .keyboardType(setKeyboardType())
-                                .autocapitalization(.none)
+                            setupPasswordUnvisible
+                        } else {
+                            setupPasswordVisible
                         }
                         
                         Button {
                             isVisiblePassword.toggle()
                         } label: {
-                            Image(isVisiblePassword ? "ic_openEye" : "ic_closeEye")
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundColor(ColorBE.colorTextfield)
-                                .frame(width: 20, height: 20)
+                            IconView(name: isVisiblePassword ? "ic_openEye" : "ic_closeEye", color: ColorBE.colorTextfield, size: 20)
                         }
-                        .padding(.horizontal, -3)
-                    }
-                    else {
-                        TextField(placeholder, text: $text)
-                            .focused($isFocused)
-                            .onChange(of: isFocused, perform: { changed in
-                                if !changed {
-                                    //                                        hasToShowErrorMessage = !validateFieldCallBack(text)
-                                }
-                                isFocused = changed
-                            })
-                            .font(placeHolderFont)
-                            .foregroundColor(ColorBE.colorTextfield)
-                            .frame(height: 52)
-                            .disableAutocorrection(true)
-                            .textContentType(textContentType)
-                            .keyboardType(setKeyboardType())
-                            .autocapitalization(.none)
+                        .padding(.horizontal, 20)
+                    } else {
+                        patternField
                     }
                 }
-                .padding(.horizontal, 15)
-                
             }
-            //            if hasToShowErrorMessage {
-            //                Text(error)
-            //                    .foregroundColor(.red)
-            //                    .fixedSize(horizontal: false, vertical: true)
-            //                    .font(.caption)
-            //                    .frame(maxWidth: .infinity, alignment: .leading)
-            //            }
         }
-    }
-}
-
-struct TextFieldComponent_Preview: PreviewProvider {    
-    static var previews: some View {
-        StatefulPreviewWrapper("") { text in
-            
-            TextFieldComponent(title: "Email", placeholder: "Digitar email", textContentType: .emailAddress, text: text)
-        }
-    }
-}
-
-struct StatefulPreviewWrapper<Value, Content: View>: View {
-    @State private var value: Value
-    private let content: (Binding<Value>) -> Content
-    
-    init(_ initialValue: Value, @ViewBuilder content: @escaping (Binding<Value>) -> Content) {
-        _value = State(initialValue: initialValue)
-        self.content = content
-    }
-    
-    var body: some View {
-        content($value)
     }
 }
 
@@ -137,5 +65,46 @@ extension TextFieldComponent {
             return .default
         }
     }
+    
+    private var setupPasswordUnvisible: some View {
+        SecureField(placeholder, text: $text)
+            .focused($isFocused)
+            .onChange(of: text, perform: { value in
+                textSubject.send(value)
+            })
+            .font(placeHolderFont)
+            .padding(.horizontal, 10)
+            .disableAutocorrection(true)
+            .textContentType(.password)
+            .keyboardType(setKeyboardType())
+            .autocapitalization(.none)
+    }
+    
+    private var setupPasswordVisible: some View {
+        TextField(placeholder, text: $text)
+            .focused($isFocused)
+            .onChange(of: text, perform: { value in
+                textSubject.send(value)
+            })
+            .font(placeHolderFont)
+            .padding(.horizontal, 10)
+            .disableAutocorrection(true)
+            .textContentType(.password)
+            .keyboardType(setKeyboardType())
+            .autocapitalization(.none)
+    }
+    
+    private var patternField: some View {
+        TextField(placeholder, text: $text)
+            .focused($isFocused)
+            .onChange(of: text, perform: { value in
+                textSubject.send(value)
+            })
+            .font(placeHolderFont)
+            .padding(.horizontal, 10)
+            .disableAutocorrection(true)
+            .textContentType(textContentType)
+            .keyboardType(setKeyboardType())
+            .autocapitalization(.none)
+    }
 }
-
