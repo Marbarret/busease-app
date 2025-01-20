@@ -31,6 +31,7 @@
 		B6C65A222D26C92400EB9EEA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A212D26C92400EB9EEA /* Error.swift */; };
 		B6C65A252D26C98500EB9EEA /* TabModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A242D26C98500EB9EEA /* TabModifier.swift */; };
 		B6C65A272D26D81400EB9EEA /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A262D26D81300EB9EEA /* Extension+UIColor.swift */; };
+		B6F7A92A2D3E76490062D897 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A9292D3E76490062D897 /* FontSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		B6C65A212D26C92400EB9EEA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		B6C65A242D26C98500EB9EEA /* TabModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModifier.swift; sourceTree = "<group>"; };
 		B6C65A262D26D81300EB9EEA /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		B6F7A9282D3E73FA0062D897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B6F7A9292D3E76490062D897 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,7 @@
 		B652FA372D232A6300306D3C /* busease-app */ = {
 			isa = PBXGroup;
 			children = (
+				B6F7A9282D3E73FA0062D897 /* Info.plist */,
 				B6C659FA2D246C4F00EB9EEA /* Features */,
 				B6C659F82D246BF800EB9EEA /* Resources */,
 				B6C659F62D246BD900EB9EEA /* Utilities */,
@@ -185,6 +189,7 @@
 				B66D06C82D29A34100AB1965 /* EncodeSans-Thin.ttf */,
 				B6C65A142D26C67B00EB9EEA /* FontType.swift */,
 				B6C65A162D26C6B100EB9EEA /* FontFamily.swift */,
+				B6F7A9292D3E76490062D897 /* FontSize.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 				B6C65A192D26C71500EB9EEA /* Extension_Font.swift in Sources */,
 				B6C65A152D26C67B00EB9EEA /* FontType.swift in Sources */,
 				B66D06D32D29B94200AB1965 /* ColorBE.swift in Sources */,
+				B6F7A92A2D3E76490062D897 /* FontSize.swift in Sources */,
 				B6C65A132D2472BA00EB9EEA /* AuthenticationViewModel.swift in Sources */,
 				B6C65A272D26D81400EB9EEA /* Extension+UIColor.swift in Sources */,
 				B6C65A112D2471CA00EB9EEA /* AuthenticationService.swift in Sources */,
@@ -547,6 +553,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"busease-app/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "busease-app/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -585,6 +592,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"busease-app/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "busease-app/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

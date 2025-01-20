@@ -12,8 +12,6 @@ struct TextFieldComponent: TextFieldComponentProtocol, View {
     var title: String
     var placeholder: String
     var textContentType: UITextContentType
-    var titleFont: Font = .headline
-    var placeHolderFont: Font = .body
     
     @Binding var text: String
     @State private var isVisiblePassword: Bool = false
@@ -25,11 +23,11 @@ struct TextFieldComponent: TextFieldComponentProtocol, View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(title)
-                .font(titleFont)
+                .font(Font.customFont(family: .encode, type: .regular, size: .medium))
                 .foregroundColor(ColorBE.colorTextfield)
             
             ZStack {
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: 8)
                     .stroke(ColorBE.colorTextfield, lineWidth: 1)
                     .frame(height: 52)
                 
@@ -52,6 +50,8 @@ struct TextFieldComponent: TextFieldComponentProtocol, View {
                     }
                 }
             }
+            .background(ColorBE.colorBGComponent)
+            .cornerRadius(8)
         }
     }
 }
@@ -72,7 +72,7 @@ extension TextFieldComponent {
             .onChange(of: text, perform: { value in
                 textSubject.send(value)
             })
-            .font(placeHolderFont)
+            .font(Font.customFont(family: .encode, type: .light, size: .tiny))
             .padding(.horizontal, 10)
             .disableAutocorrection(true)
             .textContentType(.password)
@@ -86,7 +86,7 @@ extension TextFieldComponent {
             .onChange(of: text, perform: { value in
                 textSubject.send(value)
             })
-            .font(placeHolderFont)
+            .font(Font.customFont(family: .encode, type: .light, size: .tiny))
             .padding(.horizontal, 10)
             .disableAutocorrection(true)
             .textContentType(.password)
@@ -100,7 +100,7 @@ extension TextFieldComponent {
             .onChange(of: text, perform: { value in
                 textSubject.send(value)
             })
-            .font(placeHolderFont)
+            .font(Font.customFont(family: .encode, type: .light, size: .tiny))
             .padding(.horizontal, 10)
             .disableAutocorrection(true)
             .textContentType(textContentType)

@@ -21,7 +21,9 @@ protocol ColorBEProtocol {
 }
 
 class ColorBE: ColorBEProtocol {
-    static var colorTextfield = Color(hexLightMode: "#DDDDDD", hexDarkMode: "#222222")
+    static var colorTextfield = Color(hexLightMode: "#D4D4D4", hexDarkMode: "#373737")
+    static var colorTextfieldComponent = Color(hexLightMode: "#DDDDDD", hexDarkMode: "#222222")
+    static var colorBGComponent = Color(hexLightMode: "#FAFAFA", hexDarkMode: "#OAOAOA")
     
     static var colorBg = Color(hexLightMode: "#F5F6F8", hexDarkMode: "#1A1A1A")
     static var colorBgSurface = Color(hexLightMode: "#FFFFFF", hexDarkMode: "#0D0D0D")
