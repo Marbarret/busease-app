@@ -6,6 +6,7 @@ struct VerificationCode: View {
     @State private var timeRemaining = 200
     @State private var isTimerRunning = true
     @State private var isContinueDisabled = true
+    @State private var backToRegister = true
 
     var body: some View {
         NavigationView {
@@ -46,7 +47,7 @@ struct VerificationCode: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-
+                        backToRegister.toggle()
                     } label: {
                         ImageView(name: "ic_left_chevron", color: ColorBE.colorTextTitle, width: 20, height: 20)
                     }
@@ -71,6 +72,9 @@ struct VerificationCode: View {
             }
             .onAppear {
                 startTimer()
+            }
+            .customFullScreenCover(isPresented: $backToRegister) {
+                RegisterUserView()
             }
         }
     }

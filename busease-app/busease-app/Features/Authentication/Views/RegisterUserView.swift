@@ -4,6 +4,9 @@ struct RegisterUserView: View {
     @StateObject private var viewModel = AuthenticationViewModel()
     @State private var showingErrorAlert = false
     @State private var fullName = ""
+    @State private var isLoginPresented = false
+    @State private var isCodeValidationPresented = false
+    @State private var isRegisterGooglePresented = false
     
     var body: some View {
         NavigationView {
@@ -60,6 +63,15 @@ struct RegisterUserView: View {
                     dismissButton: .default(Text("Ok"))
                 )
             }
+            .customFullScreenCover(isPresented: $isLoginPresented) {
+                LoginUserView()
+            }
+            .customFullScreenCover(isPresented: $isCodeValidationPresented) {
+                VerificationCode()
+            }
+            .customFullScreenCover(isPresented: $isRegisterGooglePresented) {
+//                Auth with Google
+            }
         }
     }
 }
@@ -92,18 +104,19 @@ extension RegisterUserView {
 extension RegisterUserView {
     private var buttonContinue: some View {
         BEButton(title: "Continue", type: .primary) {
-            viewModel.login()
-            if let errorMessage = viewModel.errorMessage {
-                viewModel.errorMessage = errorMessage
-                showingErrorAlert = true
-            }
+//            viewModel.login()
+            isCodeValidationPresented = true
+//            if let errorMessage = viewModel.errorMessage {
+//                viewModel.errorMessage = errorMessage
+//                showingErrorAlert = true
+//            }
         }
         .disabled(viewModel.isLoading)
     }
     
     private var buttonLoginGoogle: some View {
         BEButton(title: "Register with Google", type: .primary, action:  {
-            print("Login com google")
+            isRegisterGooglePresented = true
         }, icon: "")
     }
     
@@ -116,7 +129,7 @@ extension RegisterUserView {
                     .font(Font.customFont(family: .encode, type: .regular, size: .small))
                 
                 Button {
-                    
+                    isLoginPresented = true
                 } label: {
                     Text("Sign In")
                         .foregroundColor(ColorBE.colorButtonAssistant)

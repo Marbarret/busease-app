@@ -33,7 +33,9 @@
 		B6C65A272D26D81400EB9EEA /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A262D26D81300EB9EEA /* Extension+UIColor.swift */; };
 		B6F7A92A2D3E76490062D897 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A9292D3E76490062D897 /* FontSize.swift */; };
 		B6F7A92C2D3EDC930062D897 /* BEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A92B2D3EDC930062D897 /* BEButton.swift */; };
-		B6F7A92E2D3EDCEA0062D897 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A92D2D3EDCEA0062D897 /* CustomButton.swift */; };
+		B6F7A9302D3F18FC0062D897 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A92F2D3F18FC0062D897 /* ImageView.swift */; };
+		B6F7A9322D3F2B3B0062D897 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A9312D3F2B3B0062D897 /* Extension+View.swift */; };
+		B6F7A9342D3F2B970062D897 /* CustomFullScreenCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A9332D3F2B970062D897 /* CustomFullScreenCover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +68,9 @@
 		B6F7A9282D3E73FA0062D897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B6F7A9292D3E76490062D897 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		B6F7A92B2D3EDC930062D897 /* BEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEButton.swift; sourceTree = "<group>"; };
-		B6F7A92D2D3EDCEA0062D897 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B6F7A92F2D3F18FC0062D897 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		B6F7A9312D3F2B3B0062D897 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		B6F7A9332D3F2B970062D897 /* CustomFullScreenCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFullScreenCover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 			children = (
 				B6C65A182D26C71500EB9EEA /* Extension_Font.swift */,
 				B6C65A262D26D81300EB9EEA /* Extension+UIColor.swift */,
+				B6F7A9312D3F2B3B0062D897 /* Extension+View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				B64A2FE62D3DDD980032F053 /* IconView.swift */,
+				B6F7A92F2D3F18FC0062D897 /* ImageView.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -335,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C65A242D26C98500EB9EEA /* TabModifier.swift */,
-				B6F7A92D2D3EDCEA0062D897 /* CustomButton.swift */,
+				B6F7A9332D3F2B970062D897 /* CustomFullScreenCover.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -417,9 +423,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6C65A1C2D26C7CC00EB9EEA /* TextFieldComponent.swift in Sources */,
-				B6F7A92E2D3EDCEA0062D897 /* CustomButton.swift in Sources */,
+				B6F7A9302D3F18FC0062D897 /* ImageView.swift in Sources */,
+				B6F7A9322D3F2B3B0062D897 /* Extension+View.swift in Sources */,
 				B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */,
 				B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */,
+				B6F7A9342D3F2B970062D897 /* CustomFullScreenCover.swift in Sources */,
 				B6C65A192D26C71500EB9EEA /* Extension_Font.swift in Sources */,
 				B6C65A152D26C67B00EB9EEA /* FontType.swift in Sources */,
 				B66D06D32D29B94200AB1965 /* ColorBE.swift in Sources */,

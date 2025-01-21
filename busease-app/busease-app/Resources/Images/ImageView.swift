@@ -1,9 +1,10 @@
 import SwiftUI
 
-struct IconView: View {
+struct ImageView: View {
     let name: String
     let color: Color
-    let size: CGFloat
+    let width: CGFloat
+    let height: CGFloat
     
     var body: some View {
         Image(name)
@@ -11,6 +12,6 @@ struct IconView: View {
             .renderingMode(.template)
             .scaledToFit()
             .foregroundColor(color)
-            .frame(width: size, height: size)
+            .frame(width: width, height: height)
     }
 }

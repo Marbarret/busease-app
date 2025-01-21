@@ -3,6 +3,9 @@ import SwiftUI
 struct LoginUserView: View {
     @StateObject private var viewModel = AuthenticationViewModel()
     @State private var showingErrorAlert = false
+    @State var isRegisterPresented = false
+    @State var isForgotPassPresented = false
+    @State var isGoogleBTNPresented = false
     
     var body: some View {
         NavigationView {
@@ -51,6 +54,15 @@ struct LoginUserView: View {
                     message: Text(viewModel.errorMessage ?? "Erro desconhecido."),
                     dismissButton: .default(Text("Ok"))
                 )
+            }
+            .customFullScreenCover(isPresented: $isRegisterPresented) {
+                RegisterUserView()
+            }
+            .customFullScreenCover(isPresented: $isForgotPassPresented) {
+//                ForgotPasswordView()
+            }
+            .customFullScreenCover(isPresented: $isGoogleBTNPresented) {
+//                Auth with Google
             }
         }
     }
@@ -112,7 +124,6 @@ extension LoginUserView {
                     .foregroundColor(ColorBE.colorButtonAssistant.opacity(0.5))
                     .font(Font.customFont(family: .encode, type: .light, size: .tiny))
                     .multilineTextAlignment(.center)
-                
             }
             Spacer()
         }
@@ -127,7 +138,9 @@ extension LoginUserView {
                     .font(Font.customFont(family: .encode, type: .regular, size: .small))
                 
                 Button {
-                    
+                    withAnimation(.linear(duration: 0.5)) {
+                        isRegisterPresented.toggle()
+                    }
                 } label: {
                     Text("Sign Up")
                         .foregroundColor(ColorBE.colorButtonAssistant)
@@ -139,8 +152,16 @@ extension LoginUserView {
     }
     
     private var buttonForgotPassword: some View {
-        BEButton(title: "Forgot Password?", type: .text) {
-            print("Text button tapped")
+        HStack {
+            Spacer()
+            Button {
+                isForgotPassPresented = true
+            } label: {
+                Text("forgot password?")
+                    .foregroundColor(ColorBE.colorButtonAssistant)
+                    .font(Font.customFont(family: .encode, type: .regular, size: .small))
+            }
+
         }
     }
 }
