@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B64A2FE72D3DDD980032F053 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A2FE62D3DDD980032F053 /* IconView.swift */; };
+		B64FDFD02D5029C800027C4C /* Modules in Frameworks */ = {isa = PBXBuildFile; productRef = B64FDFCF2D5029C800027C4C /* Modules */; };
 		B652FA392D232A6300306D3C /* busease_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652FA382D232A6300306D3C /* busease_appApp.swift */; };
 		B652FA3D2D232A6A00306D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B652FA3C2D232A6A00306D3C /* Assets.xcassets */; };
 		B652FA412D232A6A00306D3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B652FA402D232A6A00306D3C /* Preview Assets.xcassets */; };
@@ -22,8 +23,7 @@
 		B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */; };
 		B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */; };
 		B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */; };
-		B6C65A112D2471CA00EB9EEA /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A102D2471CA00EB9EEA /* AuthenticationService.swift */; };
-		B6C65A132D2472BA00EB9EEA /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A122D2472BA00EB9EEA /* AuthenticationViewModel.swift */; };
+		B6C65A132D2472BA00EB9EEA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A122D2472BA00EB9EEA /* DependencyContainer.swift */; };
 		B6C65A152D26C67B00EB9EEA /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A142D26C67B00EB9EEA /* FontType.swift */; };
 		B6C65A172D26C6B100EB9EEA /* FontFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A162D26C6B100EB9EEA /* FontFamily.swift */; };
 		B6C65A192D26C71500EB9EEA /* Extension_Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A182D26C71500EB9EEA /* Extension_Font.swift */; };
@@ -36,7 +36,21 @@
 		B6F7A9302D3F18FC0062D897 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A92F2D3F18FC0062D897 /* ImageView.swift */; };
 		B6F7A9322D3F2B3B0062D897 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A9312D3F2B3B0062D897 /* Extension+View.swift */; };
 		B6F7A9342D3F2B970062D897 /* CustomFullScreenCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A9332D3F2B970062D897 /* CustomFullScreenCover.swift */; };
+		B6F7A9372D40605E0062D897 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7A9362D40605E0062D897 /* HomeView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B6C6527D2D4ED7E7001E83BB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B64A2FE62D3DDD980032F053 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
@@ -53,11 +67,11 @@
 		B66D06CD2D29A36500AB1965 /* EncodeSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Bold.ttf"; path = "../../../../../Downloads/Encode_Sans,Montserrat,Playwrite_IT_Moderna,Roboto/Encode_Sans/static/EncodeSans-Bold.ttf"; sourceTree = "<group>"; };
 		B66D06D22D29B94200AB1965 /* ColorBE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBE.swift; sourceTree = "<group>"; };
 		B66D06D42D29F65D00AB1965 /* VerificationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCode.swift; sourceTree = "<group>"; };
+		B6C6528B2D4F9DD9001E83BB /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Modules; path = ../Modules; sourceTree = "<group>"; };
 		B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
-		B6C65A102D2471CA00EB9EEA /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		B6C65A122D2472BA00EB9EEA /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		B6C65A122D2472BA00EB9EEA /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		B6C65A142D26C67B00EB9EEA /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		B6C65A162D26C6B100EB9EEA /* FontFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamily.swift; sourceTree = "<group>"; };
 		B6C65A182D26C71500EB9EEA /* Extension_Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Font.swift; sourceTree = "<group>"; };
@@ -71,6 +85,7 @@
 		B6F7A92F2D3F18FC0062D897 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		B6F7A9312D3F2B3B0062D897 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		B6F7A9332D3F2B970062D897 /* CustomFullScreenCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFullScreenCover.swift; sourceTree = "<group>"; };
+		B6F7A9362D40605E0062D897 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,17 +93,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64FDFD02D5029C800027C4C /* Modules in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B64FDFCE2D5029C800027C4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B652FA2C2D232A6300306D3C = {
 			isa = PBXGroup;
 			children = (
+				B6C6528B2D4F9DD9001E83BB /* Modules */,
 				B652FA372D232A6300306D3C /* busease-app */,
 				B652FA362D232A6300306D3C /* Products */,
+				B64FDFCE2D5029C800027C4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +231,7 @@
 		B6C659FA2D246C4F00EB9EEA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				B6F7A9352D40603D0062D897 /* Home */,
 				B6C65A082D24710100EB9EEA /* Authentication */,
 				B6C659FC2D246C6300EB9EEA /* Company */,
 				B6C659FB2D246C5B00EB9EEA /* User */,
@@ -287,9 +313,7 @@
 		B6C65A082D24710100EB9EEA /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				B6C65A0F2D2471B000EB9EEA /* Service */,
-				B6C65A0B2D24712000EB9EEA /* Model */,
-				B6C65A0A2D24711500EB9EEA /* ViewModel */,
+				B6C65A0A2D24711500EB9EEA /* Dependency */,
 				B6C65A092D24710E00EB9EEA /* Views */,
 			);
 			path = Authentication;
@@ -305,27 +329,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B6C65A0A2D24711500EB9EEA /* ViewModel */ = {
+		B6C65A0A2D24711500EB9EEA /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
-				B6C65A122D2472BA00EB9EEA /* AuthenticationViewModel.swift */,
+				B6C65A122D2472BA00EB9EEA /* DependencyContainer.swift */,
 			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		B6C65A0B2D24712000EB9EEA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B6C65A0F2D2471B000EB9EEA /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				B6C65A102D2471CA00EB9EEA /* AuthenticationService.swift */,
-			);
-			path = Service;
+			path = Dependency;
 			sourceTree = "<group>";
 		};
 		B6C65A1A2D26C7B400EB9EEA /* Components */ = {
@@ -346,6 +355,14 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		B6F7A9352D40603D0062D897 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B6F7A9362D40605E0062D897 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,12 +373,16 @@
 				B652FA312D232A6300306D3C /* Sources */,
 				B652FA322D232A6300306D3C /* Frameworks */,
 				B652FA332D232A6300306D3C /* Resources */,
+				B6C6527D2D4ED7E7001E83BB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "busease-app";
+			packageProductDependencies = (
+				B64FDFCF2D5029C800027C4C /* Modules */,
+			);
 			productName = "busease-app";
 			productReference = B652FA352D232A6300306D3C /* busease-app.app */;
 			productType = "com.apple.product-type.application";
@@ -427,15 +448,15 @@
 				B6F7A9322D3F2B3B0062D897 /* Extension+View.swift in Sources */,
 				B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */,
 				B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */,
+				B6F7A9372D40605E0062D897 /* HomeView.swift in Sources */,
 				B6F7A9342D3F2B970062D897 /* CustomFullScreenCover.swift in Sources */,
 				B6C65A192D26C71500EB9EEA /* Extension_Font.swift in Sources */,
 				B6C65A152D26C67B00EB9EEA /* FontType.swift in Sources */,
 				B66D06D32D29B94200AB1965 /* ColorBE.swift in Sources */,
 				B6F7A92C2D3EDC930062D897 /* BEButton.swift in Sources */,
 				B6F7A92A2D3E76490062D897 /* FontSize.swift in Sources */,
-				B6C65A132D2472BA00EB9EEA /* AuthenticationViewModel.swift in Sources */,
+				B6C65A132D2472BA00EB9EEA /* DependencyContainer.swift in Sources */,
 				B6C65A272D26D81400EB9EEA /* Extension+UIColor.swift in Sources */,
-				B6C65A112D2471CA00EB9EEA /* AuthenticationService.swift in Sources */,
 				B6C65A172D26C6B100EB9EEA /* FontFamily.swift in Sources */,
 				B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */,
 				B64A2FE72D3DDD980032F053 /* IconView.swift in Sources */,
@@ -658,6 +679,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B64FDFCF2D5029C800027C4C /* Modules */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Modules;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B652FA2D2D232A6300306D3C /* Project object */;
 }

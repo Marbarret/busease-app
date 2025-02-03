@@ -1,9 +1,8 @@
 import SwiftUI
-    
+
 struct RegisterUserView: View {
-    @StateObject private var viewModel = AuthenticationViewModel()
+    @StateObject private var viewModel = DependencyContainer.shared.provideAuthViewModel()
     @State private var showingErrorAlert = false
-    @State private var fullName = ""
     @State private var isLoginPresented = false
     @State private var isCodeValidationPresented = false
     @State private var isRegisterGooglePresented = false
@@ -24,21 +23,21 @@ struct RegisterUserView: View {
                     title: "Nome Completo",
                     placeholder: "Digite seu nome completo",
                     textContentType: .username,
-                    text: $fullName
+                    text: $viewModel.userModel.fullName
                 )
                 
                 TextFieldComponent(
                     title: "E-mail",
                     placeholder: "Digite seu e-mail",
                     textContentType: .emailAddress,
-                    text: $viewModel.email
+                    text: $viewModel.userModel.email
                 )
                 
                 TextFieldComponent(
                     title: "Senha",
                     placeholder: "Digite sua senha",
                     textContentType: .password,
-                    text: $viewModel.password
+                    text: $viewModel.userModel.password
                 )
                 .padding(.bottom, 10)
                 
@@ -70,7 +69,7 @@ struct RegisterUserView: View {
                 VerificationCode()
             }
             .customFullScreenCover(isPresented: $isRegisterGooglePresented) {
-//                Auth with Google
+                //                Auth with Google
             }
         }
     }
@@ -104,12 +103,15 @@ extension RegisterUserView {
 extension RegisterUserView {
     private var buttonContinue: some View {
         BEButton(title: "Continue", type: .primary) {
-//            viewModel.login()
-            isCodeValidationPresented = true
-//            if let errorMessage = viewModel.errorMessage {
-//                viewModel.errorMessage = errorMessage
-//                showingErrorAlert = true
-//            }
+            viewModel.registerUser(viewModel.userModel)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                if viewModel.isLoggedIn {
+                    isCodeValidationPresented = true
+                } else if let errorMessage = viewModel.errorMessage {
+                    viewModel.errorMessage = errorMessage
+                    showingErrorAlert = true
+                }
+            }
         }
         .disabled(viewModel.isLoading)
     }

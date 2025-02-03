@@ -1,14 +1,16 @@
 import SwiftUI
 
+@available(iOS 13.0, *)
 struct LoginUserView: View {
-    @StateObject private var viewModel = AuthenticationViewModel()
+    @StateObject private var viewModel = DependencyContainer.shared.provideAuthViewModel()
     @State private var showingErrorAlert = false
     @State var isRegisterPresented = false
     @State var isForgotPassPresented = false
     @State var isGoogleBTNPresented = false
+    @State var isHomePresented = false
     
     var body: some View {
-        NavigationView {
+        ZStack {
             VStack(spacing: 15) {
                 HStack {
                     VStack(alignment: .leading, spacing: 5) {
@@ -23,14 +25,14 @@ struct LoginUserView: View {
                     title: "E-mail",
                     placeholder: "Digite seu e-mail",
                     textContentType: .emailAddress,
-                    text: $viewModel.email
+                    text: $viewModel.userModel.email
                 )
                 
                 TextFieldComponent(
                     title: "Senha",
                     placeholder: "Digite sua senha",
                     textContentType: .password,
-                    text: $viewModel.password
+                    text: $viewModel.userModel.password
                 )
                 buttonForgotPassword
                 buttonContinue
@@ -45,7 +47,9 @@ struct LoginUserView: View {
             .background(ColorBE.colorBg.ignoresSafeArea())
             .onChange(of: viewModel.isLoggedIn) { isLoggedIn in
                 if isLoggedIn {
-                    
+                    isHomePresented = true
+                } else if viewModel.errorMessage != nil {
+                    showingErrorAlert = true
                 }
             }
             .alert(isPresented: $showingErrorAlert) {
@@ -55,14 +59,17 @@ struct LoginUserView: View {
                     dismissButton: .default(Text("Ok"))
                 )
             }
+            .customFullScreenCover(isPresented: $isHomePresented) {
+                HomeView(email: viewModel.userModel.email, token: "token")
+            }
             .customFullScreenCover(isPresented: $isRegisterPresented) {
                 RegisterUserView()
             }
             .customFullScreenCover(isPresented: $isForgotPassPresented) {
-//                ForgotPasswordView()
+                //                ForgotPasswordView()
             }
             .customFullScreenCover(isPresented: $isGoogleBTNPresented) {
-//                Auth with Google
+                //                Auth with Google
             }
         }
     }
@@ -96,10 +103,14 @@ extension LoginUserView {
 extension LoginUserView {
     private var buttonContinue: some View {
         BEButton(title: "Continue", type: .primary) {
-            viewModel.login()
-            if let errorMessage = viewModel.errorMessage {
-                viewModel.errorMessage = errorMessage
-                showingErrorAlert = true
+            viewModel.authenticate(viewModel.userModel)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                if viewModel.isLoggedIn {
+                    isHomePresented = true
+                } else if let errorMessage = viewModel.errorMessage {
+                    viewModel.errorMessage = errorMessage
+                    showingErrorAlert = true
+                }
             }
         }
         .disabled(viewModel.isLoading)
@@ -161,7 +172,7 @@ extension LoginUserView {
                     .foregroundColor(ColorBE.colorButtonAssistant)
                     .font(Font.customFont(family: .encode, type: .regular, size: .small))
             }
-
+            
         }
     }
 }
