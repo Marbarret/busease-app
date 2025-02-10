@@ -4,16 +4,15 @@ import Core
 import Models
 import ErrorHandling
 
+@available(iOS 13.0, *)
 public final class AuthenticationService {
     public init() {}
     
-    @available(iOS 13.0, *)
     public func registerUser(
         fullname: String,
         email: String,
-        password: String
-    ) -> AnyPublisher<String?, ErrorHandling> {
-        let requestBody = UserRegistrationBody(
+        password: String) -> AnyPublisher<String?, ErrorHandling> {
+        let requestBody = UserModel(
             role: "user",
             responsible: Responsible(
                 fullName: fullname,
@@ -28,11 +27,9 @@ public final class AuthenticationService {
             body: try? JSONEncoder().encode(requestBody),
             timeoutInterval: 60.0
         )
-        
         return performRequest(request)
     }
     
-    @available(iOS 13.0, *)
     public func authenticate(
         email: String,
         password: String
@@ -47,7 +44,29 @@ public final class AuthenticationService {
         return performRequest(request)
     }
     
-    @available(iOS 13.0, *)
+    
+    public func verifyAccount(email: String, verificationCode: String) -> AnyPublisher<String?, ErrorHandling> {
+        let requestBody = VerificationCodeBody(email: email, verificationCode: verificationCode)
+        let request = NetworkRequest(
+            endpoint: .verify,
+            method: .post,
+            body: try? JSONEncoder().encode(requestBody),
+            timeoutInterval: 60.0
+        )
+        return performRequest(request)
+    }
+    
+    public func resendCode(email: String) -> AnyPublisher<String?, ErrorHandling> {
+        let requestBody = ResendCodeBody(email: email)
+        let request = NetworkRequest(
+            endpoint: .resendCode,
+            method: .post,
+            body: try? JSONEncoder().encode(requestBody),
+            timeoutInterval: 60.0
+        )
+        return performRequest(request)
+    }
+    
     private func performRequest(_ request: NetworkRequest) -> AnyPublisher<String?, ErrorHandling> {
         guard let url = URL(string: "\(URLManager().baseURL)"+"\(request.endpoint.rawValue)") else {
             return Fail(error: .invalidURL).eraseToAnyPublisher()

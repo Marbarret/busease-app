@@ -28,20 +28,11 @@ public enum HTTPMethod: String {
 }
 
 public enum Endpoint: String {
-    case loginURL = "auth/login"
+    case loginURL = "/auth/login"
     case register = "/bse"
+    case verify = "/bse/verify"
+    case resendCode = "/bse/resend-code"
     case guardianChangePassword = "/guardian/change-password"
     case forgetPassword = "/forget-password"
     case waitingCode = "/waiting-code"
 }
-
-extension NetworkRequest {
-//    public var headers: [String: String]? {
-//        return ["Content-Type": "application/json"]
-//    }
-//
-//    public var timeoutInterval: TimeInterval {
-//        return 60.0
-//    }
-}
-

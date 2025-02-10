@@ -25,7 +25,7 @@ struct LoginUserView: View {
                     title: "E-mail",
                     placeholder: "Digite seu e-mail",
                     textContentType: .emailAddress,
-                    text: $viewModel.userModel.email
+                    text: $viewModel.userModel.responsible.email
                 )
                 
                 TextFieldComponent(
@@ -45,7 +45,7 @@ struct LoginUserView: View {
             }
             .padding()
             .background(ColorBE.colorBg.ignoresSafeArea())
-            .onChange(of: viewModel.isLoggedIn) { isLoggedIn in
+            .onChange(of: viewModel.isSuccess) { isLoggedIn in
                 if isLoggedIn {
                     isHomePresented = true
                 } else if viewModel.errorMessage != nil {
@@ -60,7 +60,7 @@ struct LoginUserView: View {
                 )
             }
             .customFullScreenCover(isPresented: $isHomePresented) {
-                HomeView(email: viewModel.userModel.email, token: "token")
+                HomeView(email: viewModel.userModel.responsible.email, token: "token")
             }
             .customFullScreenCover(isPresented: $isRegisterPresented) {
                 RegisterUserView()
@@ -105,7 +105,7 @@ extension LoginUserView {
         BEButton(title: "Continue", type: .primary) {
             viewModel.authenticate(viewModel.userModel)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if viewModel.isLoggedIn {
+                if viewModel.isSuccess {
                     isHomePresented = true
                 } else if let errorMessage = viewModel.errorMessage {
                     viewModel.errorMessage = errorMessage

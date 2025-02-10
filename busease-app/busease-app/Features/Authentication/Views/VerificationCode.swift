@@ -1,13 +1,16 @@
 import SwiftUI
 
 struct VerificationCode: View {
+    @StateObject private var viewModel = DependencyContainer.shared.provideAuthViewModel()
+    let email: String
     @State private var code = ""
     @State private var showingErrorAlert = false
     @State private var timeRemaining = 200
     @State private var isTimerRunning = true
     @State private var isContinueDisabled = true
-    @State private var backToRegister = true
-
+    @State private var backToRegister = false
+    @State private var verificationSuccess = false
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 15) {
@@ -42,6 +45,20 @@ struct VerificationCode: View {
                 
                 Spacer()
             }
+            .onAppear {
+                viewModel.isSuccess = false
+                viewModel.errorMessage = nil
+            }
+            .onReceive(viewModel.$isSuccess) { isSuccess in
+                if isSuccess {
+                    verificationSuccess = true
+                }
+            }
+            .onReceive(viewModel.$errorMessage) { errorMessage in
+                if errorMessage != nil {
+                    showingErrorAlert = true
+                }
+            }
             .padding()
             .background(ColorBE.colorBg.ignoresSafeArea())
             .toolbar {
@@ -55,12 +72,27 @@ struct VerificationCode: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-
+                        viewModel.resendCode(viewModel.userModel)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            if viewModel.isSuccess {
+                                resetTimer()
+                            } else if let errorMessage = viewModel.errorMessage {
+                                viewModel.errorMessage = errorMessage
+                                showingErrorAlert = true
+                            }
+                        }
                     } label: {
                         Text("Change email")
                             .font(Font.customFont(family: .encode, type: .light, size: .small))
                             .foregroundColor(ColorBE.colorButton)
                     }
+                }
+            }
+            .onChange(of: viewModel.isSuccess) { isLoggedIn in
+                if isLoggedIn {
+                    verificationSuccess = true
+                } else if viewModel.errorMessage != nil {
+                    showingErrorAlert = true
                 }
             }
             .alert(isPresented: $showingErrorAlert) {
@@ -76,6 +108,9 @@ struct VerificationCode: View {
             .customFullScreenCover(isPresented: $backToRegister) {
                 RegisterUserView()
             }
+            .customFullScreenCover(isPresented: $verificationSuccess) {
+                LoginUserView()
+            }
         }
     }
 }
@@ -83,8 +118,15 @@ struct VerificationCode: View {
 extension VerificationCode {
     private var buttonContinue: some View {
         BEButton(title: "Continue", type: .primary) {
-            print("Continue button tapped")
+            viewModel.verifyAccount(email, code: code)
+            if viewModel.isSuccess {
+                verificationSuccess = true
+            } else if let errorMessage = viewModel.errorMessage {
+                viewModel.errorMessage = errorMessage
+                showingErrorAlert = true
+            }
         }
+        .disabled(viewModel.isLoading)
     }
     
     private var buttonResendCode: some View {
@@ -92,7 +134,7 @@ extension VerificationCode {
             resetTimer()
         }
     }
-
+    
     private var textTitle: some View {
         Text("Verification code")
             .font(Font.customFont(family: .encode, type: .regular, size: .big))

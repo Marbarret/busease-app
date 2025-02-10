@@ -23,14 +23,14 @@ struct RegisterUserView: View {
                     title: "Nome Completo",
                     placeholder: "Digite seu nome completo",
                     textContentType: .username,
-                    text: $viewModel.userModel.fullName
+                    text: $viewModel.userModel.responsible.fullName
                 )
                 
                 TextFieldComponent(
                     title: "E-mail",
                     placeholder: "Digite seu e-mail",
                     textContentType: .emailAddress,
-                    text: $viewModel.userModel.email
+                    text: $viewModel.userModel.responsible.email
                 )
                 
                 TextFieldComponent(
@@ -50,9 +50,11 @@ struct RegisterUserView: View {
             }
             .padding()
             .background(ColorBE.colorBg.ignoresSafeArea())
-            .onChange(of: viewModel.isLoggedIn) { isLoggedIn in
+            .onChange(of: viewModel.isSuccess) { isLoggedIn in
                 if isLoggedIn {
-                    
+                    isCodeValidationPresented = true
+                } else if viewModel.errorMessage != nil {
+                    showingErrorAlert = true
                 }
             }
             .alert(isPresented: $showingErrorAlert) {
@@ -66,7 +68,7 @@ struct RegisterUserView: View {
                 LoginUserView()
             }
             .customFullScreenCover(isPresented: $isCodeValidationPresented) {
-                VerificationCode()
+                VerificationCode(email: viewModel.userModel.responsible.email)
             }
             .customFullScreenCover(isPresented: $isRegisterGooglePresented) {
                 //                Auth with Google
@@ -105,7 +107,7 @@ extension RegisterUserView {
         BEButton(title: "Continue", type: .primary) {
             viewModel.registerUser(viewModel.userModel)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if viewModel.isLoggedIn {
+                if viewModel.isSuccess {
                     isCodeValidationPresented = true
                 } else if let errorMessage = viewModel.errorMessage {
                     viewModel.errorMessage = errorMessage

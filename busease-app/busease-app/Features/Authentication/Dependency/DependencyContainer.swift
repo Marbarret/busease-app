@@ -9,6 +9,7 @@ public struct DependencyContainer {
     public func provideAuthViewModel() -> AuthenticationViewModel {
         let authService = AuthenticationService()
         let userModel = UserModel()
-        return AuthenticationViewModel(authService: authService, userModel: userModel)
+        let verification = Verification()
+        return AuthenticationViewModel(authService: authService, userModel: userModel, verificationModel: verification)
     }
 }

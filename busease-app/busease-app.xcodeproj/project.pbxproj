@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B646F2332D597505002746B7 /* VerificationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B646F2322D597505002746B7 /* VerificationSuccessView.swift */; };
 		B64A2FE72D3DDD980032F053 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A2FE62D3DDD980032F053 /* IconView.swift */; };
 		B64FDFD02D5029C800027C4C /* Modules in Frameworks */ = {isa = PBXBuildFile; productRef = B64FDFCF2D5029C800027C4C /* Modules */; };
 		B652FA392D232A6300306D3C /* busease_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652FA382D232A6300306D3C /* busease_appApp.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B646F2322D597505002746B7 /* VerificationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSuccessView.swift; sourceTree = "<group>"; };
 		B64A2FE62D3DDD980032F053 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		B652FA352D232A6300306D3C /* busease-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "busease-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B652FA382D232A6300306D3C /* busease_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busease_appApp.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */,
+				B646F2322D597505002746B7 /* VerificationSuccessView.swift */,
 				B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */,
 				B66D06D42D29F65D00AB1965 /* VerificationCode.swift */,
 			);
@@ -462,6 +465,7 @@
 				B64A2FE72D3DDD980032F053 /* IconView.swift in Sources */,
 				B6C65A222D26C92400EB9EEA /* Error.swift in Sources */,
 				B6C65A252D26C98500EB9EEA /* TabModifier.swift in Sources */,
+				B646F2332D597505002746B7 /* VerificationSuccessView.swift in Sources */,
 				B652FA392D232A6300306D3C /* busease_appApp.swift in Sources */,
 				B66D06D52D29F65D00AB1965 /* VerificationCode.swift in Sources */,
 			);
