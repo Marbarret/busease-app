@@ -8,10 +8,7 @@ import ErrorHandling
 public final class AuthenticationService {
     public init() {}
     
-    public func registerUser(
-        fullname: String,
-        email: String,
-        password: String) -> AnyPublisher<String?, ErrorHandling> {
+    public func registerUser(fullname: String, email: String, password: String) -> AnyPublisher<String?, ErrorHandling> {
         let requestBody = UserModel(
             role: "user",
             responsible: Responsible(
@@ -30,10 +27,7 @@ public final class AuthenticationService {
         return performRequest(request)
     }
     
-    public func authenticate(
-        email: String,
-        password: String
-    ) -> AnyPublisher<String?, ErrorHandling> {
+    public func authenticate(email: String, password: String) -> AnyPublisher<String?, ErrorHandling> {
         let requestBody = LoginRequestBodyAuth(email: email, password: password)
         let request = NetworkRequest(
             endpoint: .loginURL,

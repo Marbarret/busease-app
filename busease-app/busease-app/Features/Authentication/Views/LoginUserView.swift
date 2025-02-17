@@ -172,7 +172,6 @@ extension LoginUserView {
                     .foregroundColor(ColorBE.colorButtonAssistant)
                     .font(Font.customFont(family: .encode, type: .regular, size: .small))
             }
-            
         }
     }
 }

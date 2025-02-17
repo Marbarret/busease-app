@@ -9,20 +9,3 @@ public struct LoginRequestBodyAuth: Codable {
         self.password = password
     }
 }
-
-public struct ResendCodeBody: Codable {
-    public let email: String
-    public init(email: String) {
-        self.email = email
-    }
-}
-
-public struct VerificationCodeBody: Codable {
-    public var email: String
-    public var verificationCode: String
-    
-    public init(email: String, verificationCode: String) {
-        self.email = email
-        self.verificationCode = verificationCode
-    }
-}

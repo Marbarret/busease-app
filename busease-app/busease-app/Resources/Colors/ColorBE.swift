@@ -44,4 +44,7 @@ class ColorBE: ColorBEProtocol {
     static var colorButtonSecondary = Color(hexLightMode: "#FFF", hexDarkMode: "#0D0D0D")
     static var colorButtonGhost = Color(hexLightMode: "#E3E5E5", hexDarkMode: "#2C2C2C")
     static var colorButtonAssistant = Color(hexLightMode: "#00BFFF", hexDarkMode: "#009AD6")
+    
+    static var colorSuccess = Color(hexLightMode: "92E3A9", hexDarkMode: "92E3A9")
+    static var colorFailure = Color(hexLightMode: "FF4756", hexDarkMode: "FF4756")
 }

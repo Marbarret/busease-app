@@ -109,7 +109,7 @@ struct VerificationCode: View {
                 RegisterUserView()
             }
             .customFullScreenCover(isPresented: $verificationSuccess) {
-                LoginUserView()
+                VerificationSuccessView()
             }
         }
     }
