@@ -1,10 +1,11 @@
 import SwiftUI
 
 struct DependentCard: View {
-    let name: String
+//    let name: String
     let status: String
-    let image: String
-    let school: String
+//    let image: String
+//    let school: String
+    let data: Dependent
     
     var body: some View {
         ZStack {
@@ -14,22 +15,25 @@ struct DependentCard: View {
                 .shadow(radius: 0.5)
             
             VStack(spacing: 0) {
-                Image(image)
+                Image(data.user.photo ?? "")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 60, height: 60)
                     .clipShape(Circle())
                     .offset(y: -30)
                 
-                Text(name)
+                Text(data.user.genericName ?? "")
                     .font(Font.customFont(family: .encode, type: .semiBold, size: .medium))
-                    .padding(.top, -10)
+                    .padding(.top, -5)
                 
-                Text(school)
-                    .lineLimit(2)
-                    .truncationMode(.tail)
-                    .font(Font.customFont(family: .encode, type: .light, size: .small))
-                    .padding(.top, 5)
+                VStack(spacing: 0) {
+                    Text(data.school)
+                        .lineLimit(2)
+                        .truncationMode(.tail)
+                        .font(Font.customFont(family: .encode, type: .light, size: .small))
+                        .padding(.top, 5)
+                }
+                .frame(width: 100, height: 20)
                 
                 Text(status)
                     .font(Font.customFont(family: .encode, type: .light, size: .small))

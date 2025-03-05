@@ -83,7 +83,7 @@ struct HistoryCard: View {
                 }
             }
         }
-        .padding(30)
+        .padding(20)
         .background(ColorBE.colorBgSurface)
         .cornerRadius(8)
         .shadow(radius: 0.5)

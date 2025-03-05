@@ -18,40 +18,38 @@ let notifications: [Notification] = [
 struct Dependent: Codable, Identifiable {
     var id = UUID()
     let relationship: String
-    let name: GenericUser
+    let user: GenericUser
     let school: String
     let transPlan: TransPlan
 }
 
 let dependent: [Dependent] = [
     Dependent(relationship: "Filha",
-              name: GenericUser(fullName: "",
+              user: GenericUser(fullName: "",
                                 genericName: "Mina",
                                 address: nil,
                                 photo: "photo"),
               school: "Marista",
-              transPlan: TransPlan(
-                planCode: "12",
-                planType: "Basic",
-                rota: "Rota Santa Cecilia",
-                value: 125.00,
-                vehicleType: "Premium",
-                validityPeriod: ValidityPeriod(startDate: Date(),
-                                               endDate: Calendar.current.date(byAdding: .month, value: 10, to: Date())!))),
-    Dependent(relationship: "Sobrinha",
-              name: GenericUser(fullName: "",
-                                genericName: "Momo",
-                                address: nil,
-                                photo: "photo"),
-              school: "Marista José Malcherhbjhbjhbjhbj",
-              transPlan: TransPlan(
-                planCode: "12",
-                planType: "Basic",
-                rota: "Rota Santa Cecilia",
-                value: 125.00,
-                vehicleType: "Premium",
-                validityPeriod: ValidityPeriod(startDate: Date(),
-                                               endDate: Calendar.current.date(byAdding: .month, value: 10, to: Date())!))),
+              transPlan: TransPlan(planCode: "12",
+                                   planType: "Basic",
+                                   rota: "Rota Santa Cecilia",
+                                   value: 125.00,
+                                   vehicleType: "Premium",
+                                   validityPeriod: ValidityPeriod(startDate: Date(),
+                                                                  endDate: Calendar.current.date(byAdding: .month, value: 10, to: Date())!))),
+//    Dependent(relationship: "Sobrinha",
+//              user: GenericUser(fullName: "",
+//                                genericName: "Momo",
+//                                address: nil,
+//                                photo: "photo"),
+//              school: "Marista José Malcherhbjhbjhbjhbj",
+//              transPlan: TransPlan(planCode: "12",
+//                                   planType: "Basic",
+//                                   rota: "Rota Santa Cecilia",
+//                                   value: 125.00,
+//                                   vehicleType: "Premium",
+//                                   validityPeriod: ValidityPeriod(startDate: Date(),
+//                                                                  endDate: Calendar.current.date(byAdding: .month, value: 10, to: Date())!))),
 ]
 
 struct Address: Codable {

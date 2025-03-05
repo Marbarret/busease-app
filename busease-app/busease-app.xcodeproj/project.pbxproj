@@ -33,6 +33,10 @@
 		B66D06D32D29B94200AB1965 /* ColorBE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D06D22D29B94200AB1965 /* ColorBE.swift */; };
 		B66D06D52D29F65D00AB1965 /* VerificationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D06D42D29F65D00AB1965 /* VerificationCode.swift */; };
 		B6A6593B2D77A4E300A218CB /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6593A2D77A4E300A218CB /* Notification.swift */; };
+		B6A6593E2D78044000A218CB /* DependentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6593D2D78043F00A218CB /* DependentView.swift */; };
+		B6A659402D78862E00A218CB /* NewDependentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6593F2D78862E00A218CB /* NewDependentView.swift */; };
+		B6A659442D78B62600A218CB /* ComponentDataDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A659432D78B62600A218CB /* ComponentDataDependent.swift */; };
+		B6A659462D78BEE600A218CB /* TextfieldExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A659452D78BEE600A218CB /* TextfieldExample.swift */; };
 		B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */; };
 		B6C65A072D2470B400EB9EEA /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */; };
 		B6C65A0E2D24715100EB9EEA /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C65A0D2D24715100EB9EEA /* LoginUserView.swift */; };
@@ -93,6 +97,10 @@
 		B66D06D22D29B94200AB1965 /* ColorBE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBE.swift; sourceTree = "<group>"; };
 		B66D06D42D29F65D00AB1965 /* VerificationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCode.swift; sourceTree = "<group>"; };
 		B6A6593A2D77A4E300A218CB /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		B6A6593D2D78043F00A218CB /* DependentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependentView.swift; sourceTree = "<group>"; };
+		B6A6593F2D78862E00A218CB /* NewDependentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDependentView.swift; sourceTree = "<group>"; };
+		B6A659432D78B62600A218CB /* ComponentDataDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentDataDependent.swift; sourceTree = "<group>"; };
+		B6A659452D78BEE600A218CB /* TextfieldExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldExample.swift; sourceTree = "<group>"; };
 		B6C6528B2D4F9DD9001E83BB /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Modules; path = ../Modules; sourceTree = "<group>"; };
 		B6C65A012D246D4C00EB9EEA /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		B6C65A062D2470B400EB9EEA /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
@@ -229,6 +237,33 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B6A6593C2D78042B00A218CB /* Dependent */ = {
+			isa = PBXGroup;
+			children = (
+				B6A659422D78B5B800A218CB /* Subviews */,
+				B6A659412D78B5B000A218CB /* Views */,
+			);
+			path = Dependent;
+			sourceTree = "<group>";
+		};
+		B6A659412D78B5B000A218CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6A6593D2D78043F00A218CB /* DependentView.swift */,
+				B6A6593F2D78862E00A218CB /* NewDependentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B6A659422D78B5B800A218CB /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B6A659432D78B62600A218CB /* ComponentDataDependent.swift */,
+				B6A659452D78BEE600A218CB /* TextfieldExample.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		B6C659F22D246BA700EB9EEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +349,7 @@
 		B6C659FA2D246C4F00EB9EEA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				B6A6593C2D78042B00A218CB /* Dependent */,
 				B6088C462D6EBD2F00EE18FB /* TabBar */,
 				B6F7A9352D40603D0062D897 /* Profile */,
 				B6C65A082D24710100EB9EEA /* Authentication */,
@@ -530,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A659462D78BEE600A218CB /* TextfieldExample.swift in Sources */,
 				B6C65A1C2D26C7CC00EB9EEA /* TextFieldComponent.swift in Sources */,
 				B6088C4A2D6EBDDD00EE18FB /* TabBarView.swift in Sources */,
 				B6F7A9302D3F18FC0062D897 /* ImageView.swift in Sources */,
@@ -552,6 +589,7 @@
 				B6088C412D6E424200EE18FB /* NotificationItem.swift in Sources */,
 				B6088C362D6D6D2F00EE18FB /* SeeAllDependentView.swift in Sources */,
 				B62859DF2D62D50F007783DE /* HomeScreenView.swift in Sources */,
+				B6A6593E2D78044000A218CB /* DependentView.swift in Sources */,
 				B6C65A022D246D4C00EB9EEA /* ValidationHelper.swift in Sources */,
 				B6088C482D6EBD4200EE18FB /* TabBarButton.swift in Sources */,
 				B6088C432D6E49C500EE18FB /* Utils.swift in Sources */,
@@ -559,9 +597,11 @@
 				B6C65A222D26C92400EB9EEA /* Error.swift in Sources */,
 				B6C65A252D26C98500EB9EEA /* TabModifier.swift in Sources */,
 				B6088C332D6D6BAB00EE18FB /* ComponentView.swift in Sources */,
+				B6A659442D78B62600A218CB /* ComponentDataDependent.swift in Sources */,
 				B6088C3F2D6E422A00EE18FB /* NotificationView.swift in Sources */,
 				B646F2332D597505002746B7 /* VerificationSuccessView.swift in Sources */,
 				B652FA392D232A6300306D3C /* busease_appApp.swift in Sources */,
+				B6A659402D78862E00A218CB /* NewDependentView.swift in Sources */,
 				B6088C382D6E21F500EE18FB /* NotificationButton.swift in Sources */,
 				B66D06D52D29F65D00AB1965 /* VerificationCode.swift in Sources */,
 			);

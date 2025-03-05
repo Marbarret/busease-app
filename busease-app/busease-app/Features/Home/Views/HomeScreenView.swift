@@ -3,42 +3,51 @@ import SwiftUI
 struct HomeScreenView: View {
     @State private var isDependent: Bool = false
     @State private var isHistoryc: Bool = false
-    @State private var showNotifications = false
+    @State private var showNotifications: Bool = false
+    @State private var createNewDependent: Bool = false
 
     var body: some View {
-        ZStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    headerComponent
-                    bodyScroll
-                    
-                    VStack(spacing: 10) {
-                        NavigationLink(destination: SeeAllDependentView(), isActive: $isDependent) { EmptyView() }
-                        ComponentView(title: "Histórico", action: { self.isDependent = true })
+        NavigationStack {
+            ZStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        headerComponent
+                        bodyScroll
                         
-                        HistoryCard(startTime: "07:00", endTime: "07:30", origin: "Casa Pai", destination: "Escola Padre S.")
-                        HistoryCard(startTime: "07:00", endTime: "07:30", origin: "Casa Pai", destination: "Escola Padre S.")
-                    }
-                }
-                .padding()
-            }
-            .background(ColorBE.colorBg.ignoresSafeArea())
-            .navigationBarHidden(true)
-
-            
-            if showNotifications {
-                Color.black.opacity(0.3)
-                    .edgesIgnoringSafeArea(.all)
-                    .onTapGesture {
-                        withAnimation {
-                            showNotifications = false
+                        VStack(spacing: 10) {
+                            NavigationLink(destination: SeeAllDependentView(), isActive: $isDependent) { EmptyView() }
+                            ComponentView(title: "Histórico", action: { self.isDependent = true })
+                            
+                            HistoryCard(startTime: "07:00", endTime: "07:30", origin: "Casa Pai", destination: "Escola Padre S.")
+                            HistoryCard(startTime: "07:00", endTime: "07:30", origin: "Casa Pai", destination: "Escola Padre S.")
                         }
                     }
+                    .padding()
+                }
+                .background(ColorBE.colorBg.ignoresSafeArea())
+                .navigationBarHidden(true)
+
                 
-                NotificationView(showNotifications: $showNotifications)
-                    .transition(.opacity.combined(with: .scale.animation(.easeInOut)))
-                    .zIndex(1)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                if showNotifications {
+                    Color.black.opacity(0.3)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation {
+                                showNotifications = false
+                            }
+                        }
+                    
+                    NotificationView(showNotifications: $showNotifications)
+                        .transition(.opacity.combined(with: .scale.animation(.easeInOut)))
+                        .zIndex(1)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                }
+            }
+            .navigationDestination(isPresented: $isDependent) {
+                SeeAllDependentView()
+            }
+            .navigationDestination(isPresented: $createNewDependent) {
+                NewDependentView()
             }
         }
     }
@@ -69,12 +78,11 @@ extension HomeScreenView {
 
     private var bodyScroll: some View {
         VStack {
-            NavigationLink(destination: SeeAllDependentView(), isActive: $isDependent) { EmptyView() }
-            ComponentView(title: "Dependentes", action: { self.isDependent = true })
+            ComponentView(title: "Dependentes", action: { self.isDependent.toggle() })
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
-                    Button(action: { }) {
+                    Button(action: { createNewDependent.toggle() }) {
                         VStack {
                             Image(systemName: "plus")
                                 .foregroundColor(ColorBE.colorButtonAssistant)
@@ -87,8 +95,11 @@ extension HomeScreenView {
                                         style: StrokeStyle(lineWidth: 2))
                         )
                     }
-                    ForEach(dependent) { dep in 
-                        DependentCard(name: dep.name.genericName ?? "", status: "andamento", image: dep.name.photo ?? "", school: dep.school)
+                    ForEach(dependent) { dep in
+                        let destinationView = DependentView(dependent: dep)
+                        NavigationLink(destination: destinationView) {
+                            DependentCard(status: "Andamento", data: dep)
+                        }
                     }
                 }
                 .padding(.top, 20)
