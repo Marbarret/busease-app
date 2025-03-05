@@ -4,7 +4,7 @@ import SwiftUI
 struct busease_appApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeScreenView()
+            TabBarView()
         }
     }
 }

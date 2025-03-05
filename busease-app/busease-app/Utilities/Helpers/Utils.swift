@@ -1,4 +1,4 @@
-import SwiftUI
+import Foundation
 
 class Utils {
     func greeting() -> String {
@@ -12,5 +12,13 @@ class Utils {
         default:
             return "Boa noite"
         }
+    }
+    
+    func formatDate(date: String) -> String {
+        let instance = DateFormatter()
+        instance.dateFormat = "yyyy-MM-dd"
+        guard let date = instance.date(from: date) else {fatalError("format date")}
+        instance.dateFormat = "yyyy"
+        return instance.string(from: date)
     }
 }

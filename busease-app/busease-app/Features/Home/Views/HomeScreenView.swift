@@ -47,7 +47,7 @@ struct HomeScreenView: View {
 extension HomeScreenView {
     private var headerComponent: some View {
         HStack {
-            Image("photo")
+            Image("photo2")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 60, height: 60)
@@ -57,7 +57,7 @@ extension HomeScreenView {
                 Text(Utils().greeting())
                     .foregroundColor(.gray)
                 
-                Text("Mina")
+                Text("Jihyo")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(ColorBE.colorTextTitle)
@@ -87,9 +87,9 @@ extension HomeScreenView {
                                         style: StrokeStyle(lineWidth: 2))
                         )
                     }
-                    DependentCard(name: "Mina", status: "andamento", image: "photo")
-                    DependentCard(name: "Mina", status: "andamento", image: "photo")
-                    DependentCard(name: "Mina", status: "andamento", image: "photo")
+                    ForEach(dependent) { dep in 
+                        DependentCard(name: dep.name.genericName ?? "", status: "andamento", image: dep.name.photo ?? "", school: dep.school)
+                    }
                 }
                 .padding(.top, 20)
             }

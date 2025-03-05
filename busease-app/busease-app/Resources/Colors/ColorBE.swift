@@ -37,9 +37,10 @@ class ColorBE: ColorBEProtocol {
     static var colorTextBtnPrimary = Color(hexLightMode: "#FFFFFF", hexDarkMode: "#FFFFFF")
     static var colorTextBtnSecondary = Color(hexLightMode: "#FFFFFF", hexDarkMode: "#0D0D0D")
     
-    static var colorIconTabBarSelected = Color(hexLightMode: "#FFFFFF", hexDarkMode: "#0D0D0D")
-    static var colorIconTabBarUnselected = Color(hexLightMode: "#E3E5E5", hexDarkMode: "#2C2C2C")
-    
+    static var colorIconTabBarSelected = Color(hexLightMode: "#FFFFFF", hexDarkMode: "#FFFFFF")
+    static var colorIconTabBarUnselected = Color(hexLightMode: "#BEBEBE", hexDarkMode: "#BEBEBE")
+    static var colorTabBarFill = Color(hexLightMode: "#00619A", hexDarkMode: "#00619A")
+
     static var colorButton = Color(hexLightMode: "#00619A", hexDarkMode: "#00619A")
     static var colorButtonSecondary = Color(hexLightMode: "#FFF", hexDarkMode: "#0D0D0D")
     static var colorButtonGhost = Color(hexLightMode: "#E3E5E5", hexDarkMode: "#2C2C2C")

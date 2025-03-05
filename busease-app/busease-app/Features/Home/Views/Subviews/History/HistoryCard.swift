@@ -7,81 +7,112 @@ struct HistoryCard: View {
     let destination: String
     
     var body: some View {
-        VStack {
-            HStack(spacing: 5) { // Inicio
-                VStack(spacing: 12) {
-                    VStack(spacing: 2) {
-                        Text("Inicio")
-                            .font(Font.customFont(family: .encode, type: .regular, size: .tiny))
-                            .foregroundColor(ColorBE.colorTextSecondary)
-                        Text(startTime)
+        HStack(spacing: 5) {
+            VStack(spacing: 0) {
+                IconView(name: "ic_location",
+                         color: ColorBE.colorTextSecondary.opacity(0.5),
+                         size: 15)
+                .frame(width: 30, height: 30)
+                .background(ColorBE.colorBg)
+                .clipShape(Circle())
+
+                
+                Rectangle()
+                    .frame(width: 1)
+                    .foregroundColor(ColorBE.colorTextSecondary)
+                    .opacity(0.5)
+                
+                
+                IconView(name: "ic_location",
+                         color: ColorBE.colorTextSecondary.opacity(0.5),
+                         size: 15)
+                .frame(width: 30, height: 30)
+                .background(ColorBE.colorBg)
+                .clipShape(Circle())
+            }
+            
+            Spacer()
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(origin)
                             .foregroundColor(ColorBE.colorTextPrimary)
-                            .font(Font.customFont(family: .encode, type: .semiBold, size: .small))
-                    }
-                    VStack(spacing: 2) {
+                            .font(Font.customFont(family: .encode, type: .semiBold, size: .medium))
                         Text("Origem")
                             .font(Font.customFont(family: .encode, type: .regular, size: .tiny))
                             .foregroundColor(ColorBE.colorTextSecondary)
-                        
-                        Text(origin)
-                            .foregroundColor(ColorBE.colorTextPrimary)
-                            .font(Font.customFont(family: .encode, type: .semiBold, size: .small))
                     }
-                }
-                .foregroundColor(.gray)
-                
-                HStack(spacing: 0) {
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundColor(.gray)
-                        .opacity(0.5)
+                    
+                    Spacer()
                     
                     VStack(spacing: 2) {
-                        Text("0:30")
-                            .font(Font.customFont(family: .encode, type: .regular, size: .tiny))
-                            .foregroundColor(ColorBE.colorTextSecondary)
+                        Text(startTime)
+                            .foregroundColor(ColorBE.colorTextPrimary)
+                            .font(Font.customFont(family: .encode, type: .light, size: .small))
                     }
-                    .frame(minWidth: 0, maxWidth: 35, minHeight: 0, maxHeight: 10)
+                    .frame(minWidth: 0, maxWidth: 40, minHeight: 0, maxHeight: 15)
                     .padding(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(ColorBE.colorButton.opacity(0.5),
-                                    style: StrokeStyle(lineWidth: 1))
-                    )
-                    
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundColor(.gray)
-                        .opacity(0.5)
+                    .background(ColorBE.colorBg.opacity(0.5))
+                    .cornerRadius(8)
                 }
                 
-                VStack(spacing: 12) {
-                    VStack(spacing: 2) {
-                        Text("Fim")
-                            .font(Font.customFont(family: .encode, type: .regular, size: .tiny))
-                            .foregroundColor(ColorBE.colorTextSecondary)
-                        
-                        Text(endTime)
-                            .foregroundColor(ColorBE.colorTextPrimary)
-                            .font(Font.customFont(family: .encode, type: .semiBold, size: .small))
-                        
-                    }
-                    VStack(spacing: 2) {
-                        Text("Destino")
-                            .font(Font.customFont(family: .encode, type: .regular, size: .tiny))
-                            .foregroundColor(ColorBE.colorTextSecondary)
-                        
+                Spacer()
+                
+                HStack {
+                    VStack(alignment: .leading) {
                         Text(destination)
                             .foregroundColor(ColorBE.colorTextPrimary)
-                            .font(Font.customFont(family: .encode, type: .semiBold, size: .small))
-                        
+                            .font(Font.customFont(family: .encode, type: .semiBold, size: .medium))
+                        Text("Destination")
+                            .font(Font.customFont(family: .encode, type: .regular, size: .tiny))
+                            .foregroundColor(ColorBE.colorTextSecondary)
                     }
+                    
+                    Spacer()
+                    
+                    VStack(spacing: 2) {
+                        Text(endTime)
+                            .foregroundColor(ColorBE.colorTextPrimary)
+                            .font(Font.customFont(family: .encode, type: .light, size: .small))
+                    }
+                    .frame(minWidth: 0, maxWidth: 40, minHeight: 0, maxHeight: 15)
+                    .padding(10)
+                    .background(ColorBE.colorBg.opacity(0.5))
+                    .cornerRadius(8)
                 }
             }
         }
-        .padding()
+        .padding(30)
         .background(ColorBE.colorBgSurface)
         .cornerRadius(8)
         .shadow(radius: 0.5)
     }
 }
+
+/*
+ HStack(spacing: 0) {
+     Rectangle()
+         .frame(height: 1)
+         .foregroundColor(ColorBE.colorBgAssistantSecondary)
+         .opacity(0.5)
+     
+     VStack(spacing: 2) {
+         Text("0:30")
+             .font(Font.customFont(family: .encode, type: .regular, size: .tiny))
+             .foregroundColor(ColorBE.colorBgAssistantSecondary)
+     }
+     .frame(minWidth: 0, maxWidth: 35, minHeight: 0, maxHeight: 10)
+     .padding(10)
+     .overlay(
+        RoundedRectangle(cornerRadius: 8)
+            .stroke(ColorBE.colorBgAssistantSecondary.opacity(0.5),
+                    style: StrokeStyle(lineWidth: 1))
+     )
+     
+     Rectangle()
+         .frame(height: 1)
+         .foregroundColor(ColorBE.colorBgAssistantSecondary)
+         .opacity(0.5)
+ }
+*/

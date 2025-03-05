@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct NotificationButton: View {
-    @State var valueNotification: Int = 0
+    @State var valueNotification: Int = 2
     @Binding var showNotifications: Bool
 
     var body: some View {
@@ -12,17 +12,16 @@ struct NotificationButton: View {
                 }
             }) {
                 ZStack {
-                    Image(systemName: "bell.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(Color.blue)
-                        .frame(width: 20, height: 20)
+                    IconView(name: "ic_bell", color: ColorBE.colorTabBarFill, size: 20)
+                        .frame(width: 35, height: 35)
+                        .background(ColorBE.colorBgSurface)
+                        .clipShape(Circle())
                     
                     if valueNotification > 0 {
                         Circle()
                             .fill(Color.red)
                             .frame(width: 8, height: 8)
-                            .offset(x: 9, y: -9)
+                            .offset(x: 7, y: -7)
                     }
                 }
             }
@@ -30,17 +29,3 @@ struct NotificationButton: View {
         }
     }
 }
-
-struct Notification: Identifiable {
-    let id = UUID()
-    let user: String
-    let message: String
-    let timeAgo: String
-    let profileImage: String
-}
-
-let notifications: [Notification] = [
-    Notification(user: "@mizajhones2020", message: "Corretíssimo", timeAgo: "há 1 dia", profileImage: "person.circle"),
-    Notification(user: "@camila_dev", message: "Nova atualização disponível", timeAgo: "há 3h", profileImage: "bell.fill"),
-    Notification(user: "@john_doe", message: "Seu pedido foi confirmado", timeAgo: "há 5 min", profileImage: "checkmark.circle")
-]

@@ -4,15 +4,16 @@ struct DependentCard: View {
     let name: String
     let status: String
     let image: String
+    let school: String
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(ColorBE.colorBgSurface)
-                .frame(width: 120, height: 120)
+                .frame(width: 130, height: 140)
                 .shadow(radius: 0.5)
             
-            VStack {
+            VStack(spacing: 0) {
                 Image(image)
                     .resizable()
                     .scaledToFill()
@@ -21,12 +22,17 @@ struct DependentCard: View {
                     .offset(y: -30)
                 
                 Text(name)
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .padding(.top, -20)
+                    .font(Font.customFont(family: .encode, type: .semiBold, size: .medium))
+                    .padding(.top, -10)
+                
+                Text(school)
+                    .lineLimit(2)
+                    .truncationMode(.tail)
+                    .font(Font.customFont(family: .encode, type: .light, size: .small))
+                    .padding(.top, 5)
                 
                 Text(status)
-                    .font(.caption)
+                    .font(Font.customFont(family: .encode, type: .light, size: .small))
                     .foregroundColor(.green)
             }
         }
