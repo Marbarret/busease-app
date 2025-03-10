@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct DependentView: View {
-    
+    @Environment(\.dismiss) var dismiss
     var dependent: Dependent
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack(alignment: .top) {
-                    Button(action: { }) {
+                    Button(action: { dismiss() }) {
                         IconView(name: "ic_left_chevron", color: ColorBE.colorTabBarFill, size: 20)
                             .frame(width: 35, height: 35)
                             .background(ColorBE.colorBgSurface)
